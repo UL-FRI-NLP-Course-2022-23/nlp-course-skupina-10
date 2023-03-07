@@ -1,5 +1,5 @@
 # Byte-compiled / optimized / DLL files
-__pycache__/
+__pycache__
 *.py[cod]
 *$py.class
 
@@ -26,6 +26,8 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+.DS_Store
+.empty
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -127,3 +129,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Generated latex files
+report/report.aux
+report/report.bbl
+report/report.blg
+report/report.log
+report/report.out
