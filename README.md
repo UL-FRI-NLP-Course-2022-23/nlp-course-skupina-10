@@ -4,7 +4,7 @@ Team members:
 
 -   `Marko Novak`, `63130166`, `mn3983@student.uni-lj.si`
 -   `Matjaž Zupančič Muc`, `63210491`, `mm1706@student.uni-lj.si`
--   `MEMBER FULL NAME`, `STUDENT ID`, `STUDENT E-MAIL`
+-   `Klemen Laznik`, `STUDENT ID`, `kl6191@student.uni-lj.si`
 
 Group public acronym/name: `THINK OF PUBLIC STRING FOR YOUR GROUP`
 
