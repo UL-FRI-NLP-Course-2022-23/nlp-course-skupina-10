@@ -90,12 +90,31 @@ paraphrases written by human non experts, but NMT based paraphrases don't reach 
 
 	[TODO: Add at least 2 other references;]
 
-Placeholder for third reference \cite{evaluation-metrics-in-paraphrase-generation}
+\textbf{Paraphrase evaluation} is a challenging problem, and existing metrics have limitations. In this paper~\cite{evaluation-metrics-in-paraphrase-generation}, the authors propose a new metric named ParaScore, which takes into account both semantic similarity and lexical divergence between the input sentence and candidate paraphrases. ParaScore is a reference-based metric and is defined as the maximum value between the semantic similarity of the candidate paraphrase to the reference paraphrase and the input sentence to the reference paraphrase, plus a weighted measure of lexical divergence. The authors also propose a reference-free version of ParaScore by removing the reference paraphrase from the metric.
+
+The authors conducted experiments on four datasets and compared ParaScore to several baselines, including BLEU, Rouge, METEOR, BERT-iBLEU, and iBLEU. The results show that ParaScore performs significantly better than all the other metrics on all the datasets and is more robust than other metrics.
+
+The proposed metric addresses some of the limitations of existing metrics, such as BLEU, which is a widely used metric but does not consider lexical divergence, and iBLEU, which considers lexical divergence but is sub-optimal. ParaScore provides a better evaluation of paraphrasing and has the potential to be used in applications such as text simplification and data augmentation.
+
+\textbf{Current state-of-the-art for text paraphrasing} 
+
 %------------------------------------------------
 
 \section*{Methods}
 
- [TODO: Initial Ideas; Matjaz: We have to talk about this !]
+Given instructions, the proposed pipeline is as follows
+ \begin{itemize}
+     \item Get/use an existing dataset (ccGigafida, ccKres, …).
+     \item Use Slovene NMTs to generate the dataset of paraphrases with first reference in mind!
+     \item Create a metric to evaluate the generated dataset. To compute contextual similarity between original sentence and the paraphrased sentence we could embed the sentences using BERT and than compute the cosine similarity between the embeddings. We can use a readability score such as the Flesch Reading Ease score or the Gunning Fog Index to evaluate the clarity of the paraphrased sentences. To estimate the fluency we could agian use large language models such as BERT and GPT. Large language models 
+     
+     
+     This point is yet to be decided, we proposed a similar approach to ParaScore (\textbf{caution:} this would require tuning to make useful, which is not suitable for this stage of the pipeline), we can calculate similarity using many different calculations, like Pearson, Spearman, Cosine etc. We can use a readability score such as the Flesch Reading Ease score or the Gunning Fog Index to evaluate the clarity of the paraphrased sentences. For fluency I have 0 idea, sounds way too complex to calculate for being suggested as a manual method. Of course we can always use a small subgroup and evaluate by hand e.g. human evaluation.
+     \item For training the generative model, I think it came down to using T5. This could leave us to maybe use GPT-3 for point 2, perhaps...
+     \item Evaluating the performance is proposed by using ParaScore, there is also a proposal that we can do a similar approach as in the second point (but only if manual approach was used?). Saying that, we can also use the GPT-3 in this step, given we will be using T5 for model training.
+ \end{itemize}
+
+ \textbf{Regarding the use of ParaScore:} Given the width of the study~\cite{evaluation-metrics-in-paraphrase-generation}, we are lead to believe that for the task at hand - paraphrasing sentences, the existing metrics are insufficient in handling neither lexical diverging, nor semantic similarity simultaneously, which are both present. We should also be aware of potential drawback since we introduce a hyper-parameter in need of tuning. The idea behind using ParaScore is mainly to evaluate the quality of our paraphrasing model but are keen to use a similar approach to evaluate the NMTs output, which is the input - data for model training.
 
 \begin{comment}
 Use the Methods section to describe what you did an how you did it -- in what way did you prepare the data, what algorithms did you use, how did you test various solutions ... Provide all the required details for a reproduction of your work.Below are \LaTeX examples of some common elements that you will probably need when writing your report (e.g. figures, equations, lists, code examples ...).
