@@ -6,6 +6,6 @@ Team members:
 -   `Matjaž Zupančič Muc`, `63210491`, `mm1706@student.uni-lj.si`
 -   `Klemen Laznik`, `63210489`, `kl6191@student.uni-lj.si`
 
-Group public acronym/name: `THINK OF PUBLIC STRING FOR YOUR GROUP`
+Group public acronym/name: `hkh_10_3`
 
 > This value will be used for publishing marks/scores. It will be known only to you and not you colleagues.
