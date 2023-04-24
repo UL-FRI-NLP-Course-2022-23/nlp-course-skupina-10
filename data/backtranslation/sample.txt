@@ -1,0 +1,13 @@
+Meroslovje ali s tujko metrologija je znanstvena in tehniška veda o merjenju. Vzpostavlja enotno razumevanje merskih enot, kar ima ključno vlogo pri povezovanju človekovih dejavnosti. Sodobno meroslovje ima svoje korenine v političnih motivih francoske revolucije za standardizacijo enot v Franciji, ko je bil predlagan standard dolžine, vzet iz naravnega vira. To je leta 1795 privedlo do oblikovanja metričnega sistema, ki temelji na decimalnem zapisu, in je vzpostavilo nabor standardov za druge vrste meritev. Več drugih držav je sprejelo metrični sistem med letoma 1795 in 1875; za zagotovitev skladnosti med državami je bil z Metrsko konvencijo ustanovljen Mednarodni urad za uteži in mere (BIPM). Iz te ureditve se je razvil mednarodni sistem enot (SI) kot rezultat resolucije na 11. Generalni konferenci za uteži in mere (CGPM) leta 1960.
+
+Meroslovje je razdeljeno na tri osnovne prekrivajoče se dejavnosti:
+
+opredelitev merskih enot;
+praktična realizacija teh merskih enot;
+sledljivost-povezovanje meritev, izvedenih v praksi, z referenčnimi standardi.
+Te prekrivajoče se dejavnosti v različni meri uporabljajo tri osnovna podpodročja meroslovja:
+
+znanstveno ali temeljno meroslovje, ki se ukvarja z določitvijo merskih enot;
+uporabno, tehnično ali industrijsko meroslovje-uporaba meritev v proizvodnih in drugih procesih v družbi;
+zakonsko meroslovje, ki zajema predpise in zakonske zahteve za merilne instrumente in merilne metode.
+V vsaki državi obstaja nacionalni merilni sistem (NMS) kot mreža laboratorijev, kalibracijskih zmogljivosti in akreditacijskih organov, ki izvajajo in vzdržujejo njeno meroslovno infrastrukturo. NMS vpliva na to, kako se izvajajo meritve v državi in na njihovo priznavanje s strani mednarodne skupnosti, kar ima širok vpliv na njeno družbo (vključno z gospodarstvom, energijo, okoljem, zdravjem, proizvodnjo, industrijo in vprašanjem zaupanja potrošnikov). Učinki meroslovja na trgovino in gospodarstvo so med družbenimi vplivi, ki jih je najlažje opazovati. Da bi olajšali pošteno trgovino, mora obstajati dogovorjen sistem merjenja. 
