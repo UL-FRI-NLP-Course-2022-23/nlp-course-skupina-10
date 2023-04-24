@@ -9,4 +9,4 @@
 ## TODO
 
 1. Fix the character encoding issues.
-2. Can we get a developer api for the merger (It seem like it is not free) ?
+2. Can we get a developer api for the merger (It seems like it is not free) ?
