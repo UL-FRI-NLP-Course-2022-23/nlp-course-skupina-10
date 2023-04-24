@@ -4,6 +4,7 @@ from transformers import AutoTokenizer, AutoModelForMaskedLM, AutoModel
 import torch
 from scipy.spatial.distance import cdist
 import pandas as pd
+import os
 
 
 def end_of_sentence(sen, stop=('...', '.', '?', '!', '!!!')):
@@ -35,7 +36,7 @@ def save_sentences(s, f_name):
 
 
 @torch.no_grad()
-def extract_embeddings(s, tokenizer, model, batch_size=32):
+def extract_embeddings(s, tokenizer, model, batch_size=64):
     """Extract embeddings from sentences."""
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -88,12 +89,15 @@ def filter_sentences(df, heuristic=count_common_words):
                 cnt_max = cnt
                 idx = j
 
+        if s.lower() == df.iloc[i, idx].lower():
+            continue
+
         data_filtered.append([s, df.iloc[i, idx]])
 
     return data_filtered
 
 
-def construct_dataset(f_name1, f_name2, topk=1):
+def construct_dataset(f_name1, f_name2, topk=1, append=False):
     """Construct dataset by extracting sentences from two subtitle files
     and matching them using the crosloengual-bert model embeddings."""
 
@@ -123,20 +127,34 @@ def construct_dataset(f_name1, f_name2, topk=1):
     print(idxs1.shape, idxs2.shape)
 
     print("Saving dataset...")
-    data = {"sentence1": np.array(s1)[idxs1]}
+    data = {"sentence0": np.array(s1)[idxs1]}
     for i in range(topk):
-        data[f"setnence{i + 1}"] = np.array(s2)[idxs2[:, i]]
+        data[f"sentence{i + 1}"] = np.array(s2)[idxs2[:, i]]
 
     df = pd.DataFrame(data)
     print(df.head())
-    df.to_csv("dataset.csv", index=False, sep=";")
+    mode = "a" if append else "w"
+    df.to_csv("ss_dataset.csv", mode=mode, index=False, sep=";")
 
     data_filtered = filter_sentences(df)
     df = pd.DataFrame(data_filtered, columns=["sentence1", "sentence2"])
-    df.to_csv("dataset_filtered.csv", index=False, sep=";")
+    print(df.head())
+    df.to_csv("ss_dataset_filtered.csv", mode=mode, index=False, sep=";")
 
 
 if __name__ == "__main__":
-    f_name1 = "./subtitles/avatar1.srt"
-    f_name2 = "./subtitles/Avatar.2009.720p.BluRay.x264-TDM.srt"
-    construct_dataset(f_name1, f_name2, topk=3)
+    # iterate over all subtitle files in the subtitles directory
+    subtitles_dir = "./subtitles/"
+    subtitles = {}
+    for filename in os.scandir(subtitles_dir):
+        if filename.is_file() and filename.path.endswith(".srt"):
+            f_name = filename.path.split("/")[-1].split(".")[0]
+            sub, num = f_name[:-1], int(f_name[-1])
+            if sub not in subtitles:
+                subtitles[sub] = []
+            subtitles[sub].append(filename.path)
+
+    # construct dataset for each pair of subtitles
+    for f_name1, f_name2 in subtitles.values():
+        print(f_name1, f_name2)
+        construct_dataset(f_name1, f_name2, topk=3, append=True)
