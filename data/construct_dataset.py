@@ -67,6 +67,32 @@ def extract_embeddings(s, tokenizer, model, batch_size=32):
     return torch.tensor(embeddings)
 
 
+def count_common_words(s1, s2):
+    """Count common words between two sentences."""
+    s1 = set(s1.split())
+    s2 = set(s2.split())
+    return len(s1.intersection(s2))
+
+
+def filter_sentences(df, heuristic=count_common_words):
+    """Filter sentences using heuristic."""
+    data_filtered = []
+    for i in range(df.shape[0]):
+        s = df.iloc[i, 0]
+        cnt_max = 0
+        idx = 0
+
+        for j in range(1, df.shape[1]):
+            cnt = heuristic(s, df.iloc[i, j])
+            if cnt > cnt_max:
+                cnt_max = cnt
+                idx = j
+
+        data_filtered.append([s, df.iloc[i, idx]])
+
+    return data_filtered
+
+
 def construct_dataset(f_name1, f_name2, topk=1):
     """Construct dataset by extracting sentences from two subtitle files
     and matching them using the crosloengual-bert model embeddings."""
@@ -77,7 +103,6 @@ def construct_dataset(f_name1, f_name2, topk=1):
     f2 = f2.replace("è", "č").replace("È", "Č")
     s1 = extract_sentences(f1)
     s2 = extract_sentences(f2)
-
     # save_sentences(s1, f_name="./s1.txt")
     # save_sentences(s2, f_name="./s2.txt")
 
@@ -91,7 +116,7 @@ def construct_dataset(f_name1, f_name2, topk=1):
     s1_emb = extract_embeddings(s1, tokenizer, model)
     s2_emb = extract_embeddings(s2, tokenizer, model)
 
-    print("Computing cosine similarities...")
+    print("Computing cosine distances...")
     sim = cdist(s1_emb.numpy(), s2_emb.numpy(), metric='cosine')
     idxs1 = np.arange(len(s1)).astype(int)
     idxs2 = sim.argsort(axis=1)[:, :topk]
@@ -100,11 +125,15 @@ def construct_dataset(f_name1, f_name2, topk=1):
     print("Saving dataset...")
     data = {"sentence1": np.array(s1)[idxs1]}
     for i in range(topk):
-        data[f"setnence{i}"] = np.array(s2)[idxs2[:, i]]
+        data[f"setnence{i + 1}"] = np.array(s2)[idxs2[:, i]]
 
     df = pd.DataFrame(data)
     print(df.head())
     df.to_csv("dataset.csv", index=False, sep=";")
+
+    data_filtered = filter_sentences(df)
+    df = pd.DataFrame(data_filtered, columns=["sentence1", "sentence2"])
+    df.to_csv("dataset_filtered.csv", index=False, sep=";")
 
 
 if __name__ == "__main__":
