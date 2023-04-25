@@ -13,7 +13,7 @@ if __name__ == "__main__":
     clear_console()
 
     dataset = []
-    idx_start = 598
+    idx_start = 0
     for idx in range(idx_start, len(df)):
         candidate = df.iloc[idx, :]
         print(f"sample: {idx}")
@@ -29,3 +29,4 @@ if __name__ == "__main__":
         if idx != 0 and idx % 10 == 0:
             pd.DataFrame(dataset).to_csv("./ss_dataset_annotated.csv", mode="a", index=False, header=False, sep=";")
             dataset = []
+    
