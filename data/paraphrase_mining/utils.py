@@ -1,5 +1,11 @@
 import srt
 import os
+import nltk
+# Download the Slovenian data package for nltk
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('tagsets')
+nltk.download('stopwords')
 
 
 def end_of_sentence(sen, stop=('...', '.', '?', '!', '!!!')):
@@ -9,18 +15,13 @@ def end_of_sentence(sen, stop=('...', '.', '?', '!', '!!!')):
 
 def extract_sentences(file):
     """Extract sentences from subtitle file."""
-    sentances = []
-    sub_composed = ""
+    subtitles = ""
     for sub in srt.parse(file):
         sub_ = sub.content.replace("\n", " ").lstrip()
         sub_ = sub_.replace("<i>", "").replace("</i>", "")
+        subtitles += sub_ + " "
 
-        sub_composed += " " + sub_
-        if end_of_sentence(sub_composed):
-            sentances.append(sub_composed)
-            sub_composed = ""
-
-    return sentances
+    return nltk.sent_tokenize(subtitles, language='slovene')
 
 
 def save_sentences(s, f_name):
