@@ -5,7 +5,13 @@ from scipy.spatial.distance import cdist
 import pandas as pd
 import os
 from utils import load_sentences
-
+import nltk
+from nltk.tokenize import word_tokenize
+# Download the Slovenian data package for nltk
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('tagsets')
+nltk.download('stopwords')
 
 def count_common_words(s1, s2):
     """Count common words between two sentences."""
@@ -28,7 +34,10 @@ def filter_sentences(df, heuristic=count_common_words):
                 cnt_max = cnt
                 idx = j
 
-        if s.lower() == df.iloc[i, idx].lower():
+        toks1 = word_tokenize(s.replace("...", "").lower(), language="slovene")
+        toks2 = word_tokenize(df.iloc[i, idx].replace(
+            "...", "").lower(), language="slovene")
+        if toks1 == toks2:
             continue
 
         data_filtered.append([s, df.iloc[i, idx]])
@@ -92,7 +101,8 @@ def paraphrase_mining(sen1, sen2, topk=1, append=False):
         data[f"sentence{i + 1}"] = np.array(sen2)[idxs2[:, i]]
 
     df = pd.DataFrame(data)
-    df_filtered = pd.DataFrame(filter_sentences(df), columns=["sentence1", "sentence2"])
+    df_filtered = pd.DataFrame(filter_sentences(
+        df), columns=["sentence1", "sentence2"])
 
     return df, df_filtered
 
@@ -112,6 +122,8 @@ if __name__ == "__main__":
 
     # construct dataset for each pair of subtitles
     for sen1, sen2 in sentences.values():
-        df, df_filtered = paraphrase_mining(load_sentences(sen1), load_sentences(sen2), topk=3, append=True)
-        df.to_csv("pm_dataset.csv", mode="a", index=False, sep=";")
-        df_filtered.to_csv("pm_dataset_filtered.csv", mode="a", index=False, sep=";")
+        df, df_filtered = paraphrase_mining(load_sentences(
+            sen1), load_sentences(sen2), topk=3, append=True)
+
+        df.to_csv("ss_dataset.csv", mode="a", index=False, sep=";", header=False)
+        df_filtered.to_csv("ss_dataset_filtered.csv", mode="a", index=False, sep=";", header=False)
