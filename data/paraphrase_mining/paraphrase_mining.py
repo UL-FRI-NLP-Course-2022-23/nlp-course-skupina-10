@@ -5,6 +5,7 @@ from scipy.spatial.distance import cdist
 import pandas as pd
 import os
 from utils import load_sentences
+import re
 import nltk
 from nltk.tokenize import word_tokenize
 # Download the Slovenian data package for nltk
@@ -18,6 +19,13 @@ def count_common_words(s1, s2):
     s1 = set(s1.split())
     s2 = set(s2.split())
     return len(s1.intersection(s2))
+
+
+def remove_chars(sen, chars=("...", ",", ".", "?", "!", "!!!", "")):
+    """Remove special characters from sentences."""
+    for c in chars:
+        sen = sen.replace(c, "")
+    return sen
 
 
 def filter_sentences(df, heuristic=count_common_words):
@@ -34,12 +42,10 @@ def filter_sentences(df, heuristic=count_common_words):
                 cnt_max = cnt
                 idx = j
 
-        toks1 = word_tokenize(s.replace("...", "").lower(), language="slovene")
-        toks2 = word_tokenize(df.iloc[i, idx].replace(
-            "...", "").lower(), language="slovene")
+        toks1 = word_tokenize(re.sub(r'[^\w\s]', '', s).lower(), language="slovene")
+        toks2 = word_tokenize(re.sub(r'[^\w\s]', '', df.iloc[i, idx]).lower(), language="slovene")
         if toks1 == toks2:
             continue
-
         data_filtered.append([s, df.iloc[i, idx]])
 
     return data_filtered

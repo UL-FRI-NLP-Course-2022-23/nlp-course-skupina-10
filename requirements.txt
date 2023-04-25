@@ -1,3 +1,4 @@
+nltk
 transformers
 torch
 srt

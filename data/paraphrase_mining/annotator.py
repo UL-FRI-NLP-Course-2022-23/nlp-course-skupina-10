@@ -27,6 +27,8 @@ if __name__ == "__main__":
         dataset.append([candidate.to_numpy()[0], candidate.to_numpy()[sel_idx]])
 
         if idx != 0 and idx % 10 == 0:
-            pd.DataFrame(dataset).to_csv("./ss_dataset_annotated.csv", mode="a", index=False, header=False, sep=";")
+            pd.DataFrame(dataset).to_csv(
+                "./ss_dataset_annotated.csv", mode="a", index=False, header=False, sep=";"
+            )
             dataset = []
     
