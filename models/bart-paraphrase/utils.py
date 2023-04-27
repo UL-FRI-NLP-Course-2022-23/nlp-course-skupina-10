@@ -9,7 +9,7 @@ from simpletransformers.seq2seq.seq2seq_utils import (preprocess_data_bart,
                                                       preprocess_data_mbart)
 from torch.utils.data import Dataset
 from tqdm.auto import tqdm
-from simpletransformers.seq2seq import Seq2SeqModel, Seq2SeqArgs
+from simpletransformers.seq2seq import Seq2SeqArgs
 
 logger = logging.getLogger(__name__)
 
