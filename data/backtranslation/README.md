@@ -18,4 +18,6 @@
 
 ## Turn dataset into distinct pairs
 
-We generate multiple backtranslated sentences from each input sentence, e.g. `sl -> en -> sl (tr_1)`, `sl -> en -> de -> en -> sl (tr_2)`; however, some sentences might be identical. For training we need only pairs of distinct sentences, which can be `[original, tr_1]`, `[original, tr_2]`, or `[tr_1, tr_2]`. To generate training pairs, run `python .\distinct-pairs.py .\sentences.csv -o pairs.csv`.
+We generate multiple backtranslated sentences from each input sentence, e.g. `sl -> en -> sl (tr_1)`, `sl -> en -> de -> en -> sl (tr_2)`; however, some sentences might be identical. For training we need only pairs of distinct sentences, which can be `[original, tr_1]`, `[original, tr_2]`, or `[tr_1, tr_2]`. To generate training and validation pairs, run `python .\distinct-pairs.py .\sentences.csv -t pairs-train.csv -d pairs-dev.csv`.
+
+If multiple pairs exist for a sentence, then one of them will be used for validation, otherwise the pair will be used either for training or vaildation.

@@ -3,7 +3,7 @@ import csv
 import os
 
 import requests
-from tqdm import tqdm
+import random
 
 endpoint = 'https://api.deepl.com/v2/translate'
 
@@ -71,17 +71,37 @@ def divide_chunks(l, n):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('inputfile')
-    parser.add_argument('-o', '--out', required=True)
+    parser.add_argument('-t', '--out-train', required=True)
+    parser.add_argument('-d', '--out-dev', required=True)
     args = parser.parse_args()
 
-    with open(args.out, 'w', newline='', encoding='utf-8') as file:
-        writer = csv.writer(file, dialect='unix')
-        with open(args.inputfile, 'r', newline='', encoding='utf-8') as f:
-            reader = csv.reader(f)
-            for l in reader:
-                l = list(set(l))
-                if len(l) > 1:
-                    pairs = [[a, b] for idx, a in enumerate(l)
-                             for b in l[idx + 1:]]
-                    for p in pairs:
-                        writer.writerow(p)
+    with open(args.out_train, 'w', newline='', encoding='utf-8') as file_t:
+        writer_t = csv.writer(file_t, delimiter='\t')
+        writer_t.writerow(['sentence1', 'sentence2', 'label'])
+
+        with open(args.out_dev, 'w', newline='', encoding='utf-8') as file_d:
+            writer_d = csv.writer(file_d, delimiter='\t')
+            writer_d.writerow(['sentence1', 'sentence2', 'label'])
+
+            with open(args.inputfile, 'r', newline='', encoding='utf-8') as f:
+                reader = csv.reader(f)
+                for l in reader:
+                    l = list(set(l))
+                    if len(l) > 1:
+                        pairs = [[a, b]
+                                 for idx, a in enumerate(l) for b in l[idx + 1:]]
+
+                        if len(pairs) > 1:
+                            # If more than one pair, pick one as validation
+                            pick = random.randint(0, len(pairs) - 1)
+                        else:
+                            # If just one pair, use it either for train or validation
+                            pick = 0
+                            if random.random() > 0.5:
+                                pick = 1
+
+                        for i, p in enumerate(pairs):
+                            if i != pick:
+                                writer_t.writerow(p + ['1'])
+                            else:
+                                writer_d.writerow(p + ['1'])
