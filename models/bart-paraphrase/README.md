@@ -2,5 +2,5 @@ Based on <https://github.com/ThilinaRajapakse/simpletransformers/tree/master/exa
 
 ```sh
 ulimit -n 64000
-TOKENIZERS_PARALLELISM=false python3 train.py
+python3 train.py
 ```

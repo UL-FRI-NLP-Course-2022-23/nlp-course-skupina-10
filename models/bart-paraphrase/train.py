@@ -3,9 +3,10 @@ import os
 from datetime import datetime
 
 import pandas as pd
-from simpletransformers.seq2seq import Seq2SeqArgs, Seq2SeqModel
+from simpletransformers.seq2seq import Seq2SeqModel
 from sklearn.model_selection import train_test_split
-from utils import CustomSimpleDataset, clean_unnecessary_spaces, load_data
+from utils import (CustomSimpleDataset, Seq2SeqArgsFix,
+                   clean_unnecessary_spaces, load_data)
 
 # torch.multiprocessing.set_sharing_strategy('file_system')
 
@@ -103,9 +104,9 @@ eval_df["target_text"] = eval_df["target_text"].apply(clean_unnecessary_spaces)
 
 print(train_df)
 
-model_args = Seq2SeqArgs()
+model_args = Seq2SeqArgsFix()
 model_args.eval_batch_size = 64
-model_args.evaluate_during_training = True
+model_args.evaluate_during_training = False
 model_args.evaluate_during_training_steps = 2500
 model_args.evaluate_during_training_verbose = True
 model_args.fp16 = False
@@ -119,6 +120,7 @@ model_args.save_eval_checkpoints = False
 model_args.save_steps = -1
 model_args.train_batch_size = 8
 model_args.use_multiprocessing = False
+model_args.use_multiprocessing_for_evaluation = False
 
 model_args.do_sample = True
 model_args.num_beams = None

@@ -1,7 +1,9 @@
+import json
 import logging
 import os
 import pickle
 import warnings
+from dataclasses import dataclass
 from multiprocessing import Pool
 
 import pandas as pd
@@ -78,7 +80,7 @@ class CustomSimpleDataset(Dataset):
                     return l[lang]
                 d = args.get_args_for_saving()
                 d.update(tgt_lang=lang, src_lang=lang)
-                d = Seq2SeqArgs(**d)
+                d = Seq2SeqArgsFix(**d)
                 l[lang] = d
                 return d
 
@@ -116,7 +118,7 @@ class CustomSimpleDataset(Dataset):
                     preprocess_fn(d) for d in tqdm(data, disable=args.silent)
                 ]
 
-            os.makedirs(os.path.dirname(cached_features_file))
+            os.makedirs(os.path.dirname(cached_features_file), exist_ok=True)
             with open(cached_features_file, "wb") as handle:
                 pickle.dump(self.examples, handle)
 
@@ -125,3 +127,18 @@ class CustomSimpleDataset(Dataset):
 
     def __getitem__(self, index):
         return self.examples[index]
+
+
+@dataclass
+class Seq2SeqArgsFix(Seq2SeqArgs):
+
+    model_class: str = "Seq2SeqModelFix"
+
+    def save(self, output_dir):
+        os.makedirs(output_dir, exist_ok=True)
+        with open(os.path.join(output_dir, "model_args.json"), "w") as f:
+            args_dict = self.get_args_for_saving()
+            if args_dict["dataset_class"] is not None:
+                args_dict["dataset_class"] = type(
+                    args_dict["dataset_class"]).__name__
+            json.dump(args_dict, f)
