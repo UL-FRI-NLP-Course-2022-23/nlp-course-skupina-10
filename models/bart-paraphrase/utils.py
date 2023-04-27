@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 def load_data(
     file_path, input_text_column, target_text_column, label_column, keep_label=1, lang='en_XX'
 ):
-    df = pd.read_csv(file_path, sep="\t", error_bad_lines=False)
+    df = pd.read_csv(file_path, sep="\t", on_bad_lines='skip')
     df = df.loc[df[label_column] == keep_label]
     df = df.rename(
         columns={input_text_column: "input_text",
