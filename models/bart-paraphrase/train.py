@@ -3,12 +3,11 @@ import os
 from datetime import datetime
 
 import pandas as pd
-import torch.multiprocessing
 from simpletransformers.seq2seq import Seq2SeqArgs, Seq2SeqModel
 from sklearn.model_selection import train_test_split
 from utils import CustomSimpleDataset, clean_unnecessary_spaces, load_data
 
-torch.multiprocessing.set_sharing_strategy('file_system')
+# torch.multiprocessing.set_sharing_strategy('file_system')
 
 
 logging.basicConfig(level=logging.INFO)
@@ -135,7 +134,7 @@ model = Seq2SeqModel(
     encoder_decoder_type="mbart50",
     encoder_decoder_name="facebook/mbart-large-50-many-to-many-mmt",
     args=model_args,
-    #    use_cuda=False,
+    # use_cuda=False,
 )
 
 model.train_model(train_df, eval_data=eval_df)

@@ -116,6 +116,10 @@ class CustomSimpleDataset(Dataset):
                     preprocess_fn(d) for d in tqdm(data, disable=args.silent)
                 ]
 
+            os.makedirs(os.path.dirname(cached_features_file))
+            with open(cached_features_file, "wb") as handle:
+                pickle.dump(self.examples, handle)
+
     def __len__(self):
         return len(self.examples)
 
