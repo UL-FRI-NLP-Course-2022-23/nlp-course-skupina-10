@@ -3,9 +3,7 @@ import csv
 import os
 
 import requests
-import spacy
-from nltk.tokenize import sent_tokenize
-import re
+from tqdm import tqdm
 
 endpoint = 'https://api.deepl.com/v2/translate'
 
@@ -65,6 +63,11 @@ def translate(
     return out
 
 
+def divide_chunks(l, n):
+    for i in range(0, len(l), n):
+        yield l[i:i + n]
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('inputfile')
@@ -73,19 +76,39 @@ if __name__ == '__main__':
         '-k', '--key', default=os.environ.get('TRANSLATOR_TEXT_SUBSCRIPTION_KEY', None))
     parser.add_argument('-o', '--out', required=True)
     parser.add_argument('-l', '--languages', nargs='+', default=['en', 'de'])
+    parser.add_argument('-s', '--skip', default=0, type=int)
     args = parser.parse_args()
 
     with open(args.inputfile, 'rb') as f:
         contents = f.read().decode('utf8')
 
-    contents = re.sub(r'[\t\n\r]+', ' ', contents)
+    sentences = [s.strip() for s in contents.split('\n') if s.strip()]
+    skip = args.skip > 0
 
-    nlp = spacy.load('en_core_web_trf')
+    with open(args.out, 'a' if skip else 'w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file, dialect='unix')
+        l = len(args.languages)
+        if skip:
+            sentences = sentences[args.skip:]
+        else:
+            writer.writerow(['sentence{}'.format(i + 1) for i in range(l + 1)])
 
-    # sentences = [str(f).strip() for f in nlp(contents).sents if str(f).strip()]
-    sentences = [str(f).strip() for f in sent_tokenize(
-        contents, language='slovene') if str(f).strip()][0:100]
-    res = [sentences]
+        t = tqdm(total=len(sentences))
+        for batch in divide_chunks(sentences, 100):
+            if len(batch):
+                res = translate(
+                    batch,
+                    language=args.input_language,
+                    to=args.languages,
+                    backtransleate=True,
+                    key=args.key
+                )
+                for r in zip(batch, *res):
+                    writer.writerow(r)
+            t.update(len(batch))
+        t.close()
+
+    """res = [sentences]
     if len(sentences):
         res = translate(
             sentences,
@@ -100,4 +123,4 @@ if __name__ == '__main__':
         l = len(res)
         writer.writerow(['sentence{}'.format(i + 1) for i in range(l + 1)])
         for r in zip(sentences, *res):
-            writer.writerow(r)
+            writer.writerow(r)"""
