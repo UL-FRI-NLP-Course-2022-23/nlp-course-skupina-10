@@ -15,3 +15,7 @@
 
 1.  Get a (free) DeepL API key from <https://www.deepl.com/pro-api>
 2.  Run `python ./gen-data.py ./sentences.txt -o sentences.csv -k [API key]`
+
+## Turn dataset into distinct pairs
+
+We generate multiple backtranslated sentences from each input sentence, e.g. `sl -> en -> sl (tr_1)`, `sl -> en -> de -> en -> sl (tr_2)`; however, some sentences might be identical. For training we need only pairs of distinct sentences, which can be `[original, tr_1]`, `[original, tr_2]`, or `[tr_1, tr_2]`. To generate training pairs, run `python .\distinct-pairs.py .\sentences.csv -o pairs.csv`.

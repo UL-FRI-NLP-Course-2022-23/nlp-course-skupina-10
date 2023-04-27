@@ -71,37 +71,17 @@ def divide_chunks(l, n):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('inputfile')
-    parser.add_argument('-i', '--input-language', default='sl')
-    parser.add_argument(
-        '-k', '--key', default=os.environ.get('TRANSLATOR_TEXT_SUBSCRIPTION_KEY', None))
     parser.add_argument('-o', '--out', required=True)
-    parser.add_argument('-l', '--languages', nargs='+', default=['en', 'de'])
-    parser.add_argument('-s', '--skip', default=0, type=int)
     args = parser.parse_args()
 
-    with open(args.inputfile, 'rb') as f:
-        contents = f.read().decode('utf8')
-
-    sentences = [s.strip() for s in contents.split('\n') if s.strip()]
-    skip = args.skip > 0
-
-    with open(args.out, 'a' if skip else 'w', newline='', encoding='utf-8') as file:
+    with open(args.out, 'w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file, dialect='unix')
-        l = len(args.languages)
-        if skip:
-            sentences = sentences[args.skip:]
-
-        t = tqdm(total=len(sentences))
-        for batch in divide_chunks(sentences, 100):
-            if len(batch):
-                res = translate(
-                    batch,
-                    language=args.input_language,
-                    to=args.languages,
-                    backtransleate=True,
-                    key=args.key
-                )
-                for r in zip(batch, *res):
-                    writer.writerow(r)
-            t.update(len(batch))
-        t.close()
+        with open(args.inputfile, 'r', newline='', encoding='utf-8') as f:
+            reader = csv.reader(f)
+            for l in reader:
+                l = list(set(l))
+                if len(l) > 1:
+                    pairs = [[a, b] for idx, a in enumerate(l)
+                             for b in l[idx + 1:]]
+                    for p in pairs:
+                        writer.writerow(p)
