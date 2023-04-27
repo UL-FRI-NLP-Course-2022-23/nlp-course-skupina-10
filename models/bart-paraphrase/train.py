@@ -1,12 +1,14 @@
+import logging
 import os
 from datetime import datetime
-import logging
 
 import pandas as pd
+import torch.multiprocessing
+from simpletransformers.seq2seq import Seq2SeqArgs, Seq2SeqModel
 from sklearn.model_selection import train_test_split
-from simpletransformers.seq2seq import Seq2SeqModel, Seq2SeqArgs
+from utils import CustomSimpleDataset, clean_unnecessary_spaces, load_data
 
-from utils import load_data, clean_unnecessary_spaces, CustomSimpleDataset
+torch.multiprocessing.set_sharing_strategy('file_system')
 
 
 logging.basicConfig(level=logging.INFO)
@@ -72,13 +74,15 @@ q_test.to_csv("data/quora_test.tsv", sep="\t")
 train_df = pd.concat(
     [
         train_df,
-        load_data("data/pairs-train.csv", "sentence1", "sentence2", "label", lang="sl_SI"),
+        load_data("data/pairs-train.csv", "sentence1",
+                  "sentence2", "label", lang="sl_SI"),
     ]
 )
 eval_df = pd.concat(
     [
         eval_df,
-        load_data("data/pairs-dev.csv", "sentence1", "sentence2", "label", lang="sl_SI"),
+        load_data("data/pairs-dev.csv", "sentence1",
+                  "sentence2", "label", lang="sl_SI"),
     ]
 )
 
@@ -131,7 +135,7 @@ model = Seq2SeqModel(
     encoder_decoder_type="mbart50",
     encoder_decoder_name="facebook/mbart-large-50-many-to-many-mmt",
     args=model_args,
-    use_cuda=False,
+    #    use_cuda=False,
 )
 
 model.train_model(train_df, eval_data=eval_df)

@@ -2,12 +2,12 @@ import logging
 
 from simpletransformers.seq2seq import Seq2SeqModel
 
-
 logging.basicConfig(level=logging.INFO)
 transformers_logger = logging.getLogger("transformers")
 transformers_logger.setLevel(logging.ERROR)
 
-model = Seq2SeqModel(encoder_decoder_type="mbart", encoder_decoder_name="outputs")
+model = Seq2SeqModel(encoder_decoder_type="mbart50",
+                     encoder_decoder_name="outputs")
 
 
 while True:
