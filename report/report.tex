@@ -253,25 +253,29 @@ ggplot(diamonds,
     \item Diversity: A measure of how different or unique the paraphrase is from the original text. A paraphrase that is diverse or original should convey the same meaning as the original text, but using different words or structures, and avoiding excessive copying or close similarity to the original text
 \end{enumerate}
 
-\begin{table}[]
+\textbf{Scoring}
+
+\begin{table}[!h]
 \begin{tabular}{lrr}
           & \multicolumn{1}{c}{\textbf{Back-translation}} & \multicolumn{1}{c}{\textbf{Paraphrase-mining}} \\
 Accuracy  & $4.29 \pm 0.93$                                       & $4.12 \pm 1.10$                                              \\
 Fluency   & $4.28 \pm 0.85$                                       & $4.17 \pm 1.05$                                              \\
-Diversity & $3.31 \pm 1.22$                                       & $3.03 \pm 1.25$                                             
-\label{Hand evaluated metrics statistics}
+Diversity & $3.31 \pm 1.22$                                       & $3.03 \pm 1.25$                             
+
 \end{tabular}
 \end{table}
 
-Back-translation technique:
-Accuracy: 
-Fluency: 
-Diversity: 
+\textbf{Krippendorff's alpha coefficient (Annotators agreement)}
 
-Paraphrase-mining technique:
-Accuracy: 
-Fluency: 
-Diversity: 
+\begin{table}[!h]
+\begin{tabular}{lrr}
+          & \multicolumn{1}{c}{\textbf{Back-translation}} & \multicolumn{1}{c}{\textbf{Paraphrase-mining}} \\
+Accuracy  & $0.44$                                       & $0.34$                                              \\
+Fluency   & $0.36$                                       & $0.42$                                              \\
+Diversity & $0.07$                                       & $0.12$                             
+
+\end{tabular}
+\end{table} 
 
 \begin{comment}
 
