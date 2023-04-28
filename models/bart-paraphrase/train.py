@@ -123,19 +123,21 @@ model_args.use_multiprocessing = False
 model_args.use_multiprocessing_for_evaluation = False
 
 model_args.do_sample = True
-model_args.num_beams = None
+model_args.num_beams = 1
 model_args.num_return_sequences = 3
 model_args.max_length = 128
 model_args.top_k = 50
 model_args.top_p = 0.95
 model_args.dataset_class = CustomSimpleDataset
+model_args.tgt_lang = 'sl_SI'
+model_args.src_lang = 'sl_SI'
 
 # model_args.wandb_project = "Paraphrasing with BART"
 
 
 model = Seq2SeqModel(
     encoder_decoder_type="mbart50",
-    encoder_decoder_name="facebook/mbart-large-50-many-to-many-mmt",
+    encoder_decoder_name="facebook/mbart-large-50",
     args=model_args,
     # use_cuda=False,
 )
