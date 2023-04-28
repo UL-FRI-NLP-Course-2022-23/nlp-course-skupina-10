@@ -17,6 +17,7 @@
     <div class="container">
         <form method="POST"
             class="m-3">
+            <h1 class="mb-3 h3">{{ current }} / {{ total }}</h1>
             <div class="mb-3">
                 <label for="sentence-1"
                     class="form-label">Sentence 1</label>
@@ -37,6 +38,7 @@
                 <label for="accuracy"
                     class="form-label">Accuracy</label>
                 <input type="number"
+                    autofocus
                     class="form-control"
                     id="accuracy"
                     name="accuracy"
@@ -72,13 +74,13 @@
                     required
                     value="{{ diversity }}">
             </div>
-            <div class="mb-3">
+            <div class="d-flex flex-row-reverse">
+                <button type="submit"
+                    name="next"
+                    class="btn btn-primary ms-3">Next</button>
                 <button type="submit"
                     name="prev"
                     class="btn btn-secondary">Prev</button>
-                <button type="submit"
-                    name="next"
-                    class="btn btn-primary">Next</button>
             </div>
         </form>
     </div>

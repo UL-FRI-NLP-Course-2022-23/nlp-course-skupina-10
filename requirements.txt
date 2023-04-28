@@ -2,3 +2,4 @@ nltk
 transformers
 torch
 srt
+Flask
