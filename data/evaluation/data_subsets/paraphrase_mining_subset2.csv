@@ -1,201 +1,201 @@
-;sentence1;sentence2;accuracy;fluency;diversity
-0;V zgodovini nisem ravno dober, Kasij, toda a ne bi morali barbari izgubiti bitko pri Kartagini?;Zgodovina ni ravno moja močna točka, Kasij, ampak kaj ne bi morali barbari izgubiti bitko pri Kartagini?;5;4;4
-1;-Da, Jaz sem ga našel.;-Ja, našel sem ga.;5;5;3
-2;Brez zamere, v redu?;Saj ni zamere, ne?;5;4;4
-3;Nikakor nočeš umreti.;Preprosto nočeš umreti.;4;5;3
-4;Jaz mislim, da je.;Jaz mislim, da drži.;3;4;3
-5;Ničesar, kar bi ga izpostavilo snu.;Ničesar, kar bi ga izpostavilo spancu.;5;5;2
-6;-Zato mi Arthur stalno tolmači da ni možna.;-Zato mi Arthur vedno tolmači da ni mogoča.;5;5;1
-7;Nekaj bi vas vprašala.;Naj vas nekaj vprašam.;5;5;3
-8;Pokrij rano.;Zakrij rano.;3;5;2
-9;To bo svež začetek na novem svetu.;To bi bil nov začetek na novem svetu.;3;5;2
-10;Pojdi spančkat, gospod Eames.;Pojdi spat, gospod Eames.;3;5;2
-11;-Prekleto, zakaj potlej ni?;-Prekleto, zakaj potem ni?;5;5;1
-12;Ljudje, kaj je tukaj narobe?;Ljudje, kaj tu manjka?;2;3;3
-13;Nisem tukaj, da bi ubil Leaddisa.;Tu nisem, da bi ubil Leaddisa.;5;5;2
-14;Ja, poglej moje naprave.;Poglej moje instrumente.;2;4;4
-15;Marshal, ali imate migreno?;Šerif, imate migreno?;1;5;4
-16;Ne bom dovolil nove diktature!;Ne bom dopustil novega diktatorstva!;4;2;3
-17;Otrokoma sem obrnil hrbet in od takrat se stalno trudim pridobiti pot nazaj.;Otrokoma sem obrnil hrbet in od takrat, se vedno trudim pridobiti pot nazaj.;5;2;1
-18;Drhal to vidi, pa tudi senat.;Drhal vidi to, pa tudi senat.;3;4;2
-19;Kaj bo torej naš naslednji korak?;Kaj bo najin naslednji korak?;4;4;2
-20;Moramo premestiti njegovo mržnjo z njegovega očeta na njegovega botra.;Premestiti moramo njegovo sovraštvo z njegovega očeta na njegovega botra.;5;2;3
-21;Trdila je, da otroci niso mrtvi.;Vztrajala je, da otroci niso mrtvi.;5;5;2
-22;Tudi to je lahko vrlina, če nas žene k odličnosti.;To je tudi lahko vrlina, če nas žene do odličnosti.;3;5;3
-23;Najprej jih bom izgnal s plinom.;Najprej jih bom pregnal s plinom.;5;5;2
-24;Glede tebe pa...;Kar pa se tiče tebe ...;5;5;4
-25;Pomirite se ljudje, pomirite!;Pomirite se!;2;5;2
-26;Je bil doktor prisoten?;Je bil dr. Sheehan tistega večera prisoten?;1;5;4
-27;In še vedno mu.;Še vedno mu.;5;5;1
-28;Po vseh lažeh, ki si jih izrekel?;Po vseh tvojih lažeh?;5;5;4
-29;Na'vi pravijo, da se vsak rodi dvakrat.;Na'vi pravijo, da se človek rodi dvakrat.;4;5;2
-30;To je pa res prekleto smešno.;To je prekleto smešno.;4;4;1
-31;Kaj pa, če ne bodo hoteli proč?;In če ne bodo hoteli iti?;5;5;5
-32;Oprostite, veličanstvo.;Oprostite, visočanstvo.;5;5;1
-33;Ne vem več, kdo sploh sem.;Ne vem več, kdo sem.;5;4;1
-34;In ko bo kombi trčil v branik na mostu, bo to več kot očitno.;In ko bo kombi trčil v pregrado na mostu, bo to več kot očitno.;5;5;2
-35;To bi vedel, če bi imel vsaj malo treninga.;Če bi bil na pripravah, bi to vedel.;3;5;4
-36;Tu je kopija vašega sprejemnega lista.;Tu je kopija vašega sprejemnega obrazca.;5;5;2
-37;Mi... pojma nimamo, kako je prišla tja.;Ne vemo, kako je prišla ven.;3;4;3
-38;Prijatelja sem imel.;Imel sem prijatelja.;5;5;3
-39;Prvič, odkar so zaprli njeno šolo.;Prvič, odkar so njeno šolo zaprli.;5;5;2
-40;Še pacientov?;Še več pacientov?;5;5;3
-41;Menila sem, da me morda pogrešaš.;Mislila sem, da me morda pogrešaš.;3;4;2
-42;Tam spodaj se dogaja nekaj biološko izjemno zanimivega.;Tam se dogaja nekaj biološko zelo zanimivega.;3;5;3
-43;-Oh... ali res?;-Kaj res?;5;5;2
-44;Blagoslovljeni oče, bdi nad ženo in sinom s pripravljenim mečem.;Blagoslovljeni oče, bdi nad mojo ženo in sinom s pripravljenim mečem.;4;4;1
-45;Samo projekcije so.;Samo predstavitve so.;1;4;2
-46;Bolj kot spreminjaš stvari, hitreje se jim projekcije zbližajo.;Bolj kot spreminjaš stvari, hitreje se jim predstavitve zbližajo.;4;5;1
-47;Iskreno, če bi sam odločal o tem, bi vklenil tudi vseh 42 pacientov z oddelka A in B. Oprostite mi!;Če bi jaz odločal, bi vklenil tudi vseh 42 pacientov iz oddelkov A in B. Oprostite.;5;5;4
-48;Nekoč smo to že verjeli.;Nekoč smo že verjeli tako.;5;5;2
-49;Bogate gospe plačajo precej, da pridejo k največjim borcem.;Bogate gospe precej plačajo, da pridejo k največjim borcem.;5;5;1
-50;Ja, tukaj smo, sonček.;Smo, sonček.;4;5;2
-51;Morate oditi, drugače boste vsi umrli.;Oditi morate, drugače boste umrli.;4;5;3
-52;Potem jih je prinesla nazaj noter in jih posadila za kuhinjsko mizo.;Nato jih je nesla v hišo in jih posadila za mizo.;4;5;5
-53;Če vaju ne bo nazaj do trzaja, grem z ali brez vaju.;Če vaju ne bo nazaj do trzaja, grem z vama ali brez.;5;2;1
-54;Pred dvema tednoma ste napadli Georga Noyca.;Pred dvema tednoma ste napadli Noycea.;5;5;1
-55;Veste s kakšnimi Ijudmi imam opravka vsak dan?;Veste, s kakšnimi ljudmi se vsak dan srečujem?;2;5;3
-56;Poslušaj mojo teorijo, Andrew.;Moja teorija je taka, Andrew.;5;5;5
-57;-Čim pridemo v hotel in se približamo Fischerju, nas bo njegovo varovanje obkolilo.;Takoj, ko pridemo v hotel in se približamo Fischerju, nas bodo njegovi varnostniki obkolili.;5;5;3
-58;V planinah Aleluja?;V gorovju Aleluja?;2;5;2
-59;Kaj je tam noter?;Kaj je tam?;4;5;1
-60;Je Senat z vami?;Senat drži z vami?;3;4;3
-61;Aja, naj izrazimo vašo skrb neposredno Mauricu?;Ali naj izrazimo vašo skrb neposredno Mauricu?;5;5;1
-62;Gospa je opravila.;Gospa je opravila svoje.;5;5;1
-63;Veliko se mi mota po glavi.;Veliko se mi moti po glavi.;2;3;1
-64;Opazoval si me vsak trenutek.;Nadzoroval si me vsako minuto.;4;5;4
-65;Kako to, da ti ni pomembno, kat te bo vlak odpeljal?;Kako to, da ti ni pomembno, kam te bo vlak odpeljal?;5;5;1
-66;Vedel sem, da govoriš naš jezik.;Vedel sem, da znaš angleško.;2;4;2
-67;Kaj bi delala, če bi prišla ven?;In kaj bi storila, če bi prišla ven?;5;3;3
-68;Samo eno mesto obstaja, kamor bi ga odpeljali.;Samo en kraj je, kamor bi ga odpeljali.;5;4;4
-69;Torej, greste na trajekt?;Torej, boste odšli s trajektom?;4;5;4
-70;Tukaj nimaš pravice govoriti!;Tu nimaš pravice govoriti.;5;4;2
-71;Zarezali bodo v moje možgane.;Rezali mi bodo v možgane.;5;5;2
-72;"Takega ""frisa"" ne pozabiš.";Takega obraza ne pozabiš.;4;5;2
-73;Kaj pa zdaj?;Kaj pa to?;2;3;2
-74;Po skupinski terapiji sem jo pripeljal nazaj sem in jo zaklenil.;Pripeljal sem jo sem po skupinski terapiji in zaklenil.;5;2;4
-75;Izvajal sem neke eksperimente.;Izvajal sem neke poizkuse.;4;5;2
-76;Če niste bili v areni, si lahko predstavo ogledate tu.;Če niste bili v areni, lahko vidite predstavo tukaj.;5;4;3
-77;Znova si dokazal svoje junaštvo, Maksim.;Znova si dokazal svojo hrabrost, Maksim.;5;5;2
-78;Zelenjavnik, ki podnevi dehti po zeliščih, zvečer pa po jasminu.;Zelenjavnik, ki podnevi dehti po zeliščih, zvečer po jasminu.;5;4;1
-79;In ... nisem prepričana, da nam bo všeč, kar bomo našli.;Nisem prepričana, da nam bo všeč, kar bomo našli.;4;5;2
-80;Žaluj z mano, brat.;Žaluj z menoj, brat.;4;5;1
-81;To je zelo nevarno!;To je nevarno.;3;5;2
-82;Ne več, če ne zmore, ampak noče.;Ne vem če zmore, ampak vem, da noče.;1;5;4
-83;Utegnete potonete v globlje stanje sna.;Potonete lahko v globlje stanje sanj.;3;2;4
-84;Kaj pa zdaj?;Pa zdaj?;5;5;2
-85;-Zadosti preprosta.;-Dovolj preprosta.;5;5;1
-86;36 do 48 ur je potrebnih, da nevroleptični narkotiki... dosežejo uporabni nivo v krvnem obtoku.;36 do 48 ur traja, da nevroleptični narkotik v krvi doseže primeren nivo.;5;5;5
-87;Zato me pustite na miru.;Zato me pustite pri miru.;5;5;1
-88;Ne pozabi na fazno integracija, srednji gumb.;Ne pozabi fazne integracije.;5;3;3
-89;Drugič pripelji še kaj prijateljev.;In pripelji še prijatelje.;4;5;4
-90;Andrew Laeddis je prižgal vžigalico... ki je zanetila požar, ki je ubil mojo ženo.;Andrew Laeddis je prižgal vžigalico, ki je povzročila požar, zaradi katerega je umrla moja žena.;5;4;4
-91;Zvijače so mi znane, in, lahko vas naučim, da celo v snu vaša obramba ne odpove.;Zvijače so mi znane in lahko vas naučim, da celo v spanju vaša obramba ne odpove.;5;4;2
-92;Prodal si mi jalove žirafe.;Prodal si mi slabe žirafe.;5;5;2
-93;Da bi vam pomagali, cesar, je senat pripravil niz protokolov, da bi začeli odpravljati težave mesta, začenši z zdravstvenimi ukrepi v grški četrti, kjer se že pojavlja kuga.;Da bi vam pomagali, cesar, je senat pripravil niz protokolov, da bi začeli odpravljati težave mesta, začenši z osnovnimi zdravstvenimi ukrepi v grški četrti, kjer se že pojavlja kuga.;5;5;3
-94;In kaj naj bi to pravzaprav bilo?;In kaj naj bi to bilo?;4;5;2
-95;Se je zgodilo kaj nenavadnega?;Se je zgodilo kaj neobičajnega?;5;5;1
-96;Prijazen študent.;Prijeten študent.;5;5;1
-97;Kaj si imel v glavi?;Kaj ti je šlo po glavi?;3;4;3
-98;Ste uživali v poslednjem božjem daru?;Ste uživali v zadnjem Božjem darilu?;5;4;2
-99;G. Breen, nekaj vprašanj vam morava postaviti, razumete?;G. Breen, postaviti vam morava nekaj vprašanj, prav?;5;5;5
-100;Do sedaj še nisva slišala ničesar, kar bi bilo res, Chuck.;Niti enkrat nisva slišala resnice, Chuck.;4;5;5
-101;Sodo z ledom prosim.;-Mineralno vodo z ledom, prosim.;4;5;3
-102;Nadeni mu oklep.;Pritrdi mu oklep.;4;5;2
-103;Kmalu bo star osem let.;Kmalu bo dopolnil osem let.;5;5;3
-104;Uporabila je praktično iste besede kot Cawley in medicinska sestra.;Uporabila je iste besede kot Cawley in bolničarka.;4;5;4
-105;Opraviti moramo še nekaj testov premikanja in refleksov.;Še nekaj testov motorike moramo opraviti.;5;5;5
-106;Fige, jabolka, hruške.;Smokve, jabolka, hruške.;5;5;3
-107;Boš ostala z mano?;Boš ostala z menoj?;5;5;2
-108;Mogoče poznate pacienta po imenu Andrew Laeddis?;Ste kdaj spoznali pacienta po imenu Andrew Laeddis?;5;5;5
-109;Sprehodi se.;Sprehodite se.;5;5;3
-110;Za vse to si ti kriv, ne bi jim bilo treba umreti.;Ne bi jim bilo treba umreti.;2;5;3
-111;Ti boš dobil bitko v Kartagini.;Ti dobiš bitko v Kartagini.;2;5;2
-112;Ne občutiš, da je minilo šest let.;Ne zdi se kot šest let.;4;4;5
-113;Ampak nekako niste našli časa, da bi ga pogledali.;A nekako še niste našli časa, da bi to pogledali.;5;5;3
-114;Kje so moji prekleti... cigareti?;Kje so moje presnete cigarete?;5;4;4
-115;Ali poznate pacienta z imenom Andrew Laeddis?;Ste kdaj spoznali pacienta po imenu Andrew Laeddis?;5;5;5
-116;Nisem vedel, da bo drgnil svoj frdamani fris obnjo.;Nisem vedel, da bo drgnil svojo prekleto glavo ob njo.;5;4;3
-117;Jaz sem samo še en bedak, ki gre nekam, kjer bo to obžaloval.;Jaz sem samo pešak, ki gre nekam, kamor si ne želi.;2;4;5
-118;Umrla bi za kak vzorec.;Vse bi dala za nekaj vzorcev.;5;5;5
-119;In ne bo ti všeč.;Ne bo ti všeč.;5;4;1
-120;Hčere nosijo vodo iz reke.;Moje hčere nosijo vodo iz reke.;4;5;1
-121;Tule ne voham pogodbe.;Tukaj ne voham pogodbe.;5;3;1
-122;Zgleda, da je imel dolg pogovor s paranoidnim shizofrenikom, Georgom Noycem.;Dolgo se je pogovarjal s paranoidnim shizofrenikom, Georgeom Noycem.;4;5;4
-123;Brat, prosim, ne napadajte ljudi iz nebes.;Brat, ne napadaj ljudi z neba.;3;4;3
-124;-Pa še pri pameti te bo ohranilo naslednjih šest let.;Pa še pri pameti te bo ohranilo prihodnjih šest let.;5;5;1
-125;Tvoja krivda jo definira.;Tvoja krivda jo označuje.;2;4;2
-126;Dobrodošli v tabor.;Dobrodošli v taboru.;5;5;1
-127;Njene rane so bile prehude.;Rane so bile prehude.;4;5;1
-128;Oddelek B, ženski oddelek je na vaši levi strani.;Oddelek B je ženski oddelek, to je stavba na vajini levi.;4;5;3
-129;To je bistvo težav, kajne?;To je srž težave, mar ne?;5;3;4
-130;Ej ti,kaj je bil to za en vrag?;Ej ti, kaj je bil to za en vrag?;5;5;1
-131;Življenje vojaka je preprosteje.;Življenje vojščaka je bolj preprosto.;5;5;4
-132;Ko sem prišel ven, sem na tleh zagledal trupla.;Ko sem šel ven, sem na tleh videl trupla.;5;4;4
-133;Je kdo od vas bil v vojski?;Je že kdo bil v vojski?;4;5;3
-134;Kot da bi bil tam zunaj resničen svet, to tukaj pa samo sanje.;Kot da je tam zunaj resnični svet, to tukaj pa sanje.;5;5;3
-135;Več kot nagačena plišasta živalca bo treba, da ta otroka prepriča, da še imata očeta.;Več kot nagačena plišasta živalca bo potrebna, da se otroka prepričata, da še imata očeta.;5;4;2
-136;Glej vse to sveže meso.;Poglej to sveže meso.;4;5;4
-137;Zato mi najdi korenček, ki jih bo spravil proč.;Najdi korenček, ki jih bo zvabil stran.;5;4;4
-138;To moti moje naprave.;To moti moje instrumente.;5;4;2
-139;Vsaka njegova zmaga je kljubovanje.;Vsaka njegova zmaga pomeni kljubovanje.;4;5;2
-140;Samo Numidijec je vreden 2000.;Že Numidijec je vreden 2000.;5;5;4
-141;Morda sem imel dovolj zdravnikov, ki so mi govorili, česa vse ne zmorem.;Sit sem bil zdravnikov, ki so mi govorili, česa ne morem.;3;5;4
-142;Kakšnem partnerju?;Katerem partnerju?;3;4;1
-143;Mogoče Cawley sedaj sedi v svoji graščini in razmišIja o svojem vedenju.;Mogoče Cawley sedi v svoji graščini in premišljuje o svojem obnašanju.;5;5;3
-144;KDO JE 67?;KDO JE ŠTEVILKA 67?;5;4;3
-145;Imenujemo ga veliki leonopteryx.;Naši mu rečejo veliki leonopteriks.;3;5;4
-146;In jaz tebe.;Tudi jaz tebe.;5;5;4
-147;"Jaz sem subjekt; moj um ga naseljuje.";Jaz sem predmet, moj um ga naseljuje.;2;4;2
-148;A si dobro?;Si dobro?;5;5;1
-149;Zdi se, da tokrat je.;Kot izgleda, tokrat je.;4;3;4
-150;Nič vam ne pride na misel.;Vam nič ne pride na misel?;1;4;3
-151;Prosim.. samo pusti da te držim.;Ne, prosim, moram te držati.;5;5;5
-152;-Prišel si izpridit enega majih najbistrejših in najboljših.;-Prišel si izpridit, enega mojih najbistrejših in najboljših.;4;5;1
-153;Sprosti se, marinec, delaš me živčno.;Živčno me delaš.;3;4;2
-154;Veliko ime imaš.;Ugledno ime imaš.;3;3;2
-155;A prej ali pozneje, na koncu se vedno zbudiš.;Toda prej ali slej se moraš zbuditi.;5;3;5
-156;Če cel svet misli, da je Chuck mrtev, potem je idealen za njihove poskuse.;Če svet misli, da je Chuck mrtev, je popoln za njihove poskuse.;4;5;3
-157;Naučena je bila.;Bila je naučena.;5;4;3
-158;Če bomo ostali skupaj, bomo preživeli.;Če ostanemo skupaj, preživimo.;5;4;4
-159;In vi pravite, da je morala iti tukaj mimo.;Pravite, da je morala iti tu skozi.;5;5;4
-160;Kdo pa so, da mi pridigajo?;Kdo so oni, da predavajo meni?;5;5;5
-161;Kako še ga izvajaš?;Kako ga še izvajaš?;5;2;1
-162;Kako dolgo sta obtičal tam?;Kako dolgo sta obtičala tam?;5;3;1
-163;Je legalno priseljevanje zločin, Marshal?;Je imigracija zločin, šerif?;2;4;3
-164;Ja, je.;Ja, mislim da.;5;5;4
-165;Boš pobijal otroke?;Boš pobil otroke?;4;5;2
-166;Tak marinec bi mi lahko priskrbel podatke s terena, ki jih potrebujem.;Tak marinec bi lahko pridobil informacije na terenu.;4;5;5
-167;Pri takem poslu ni prostora za turiste, gospod Saito.;Pri takšnem poslu ni prostora za turiste, gospod Saito.;5;5;1
-168;Vse to sta rekonstruirala iz svojih spominov?;Vse to sta ponovno zgradila iz svojih spominov?;3;2;3
-169;Ampak ta ženska mora tudi izbrati mene.;Ampak tudi ta ženska mora izbrati mene.;4;4;3
-170;Pridobi jo na svojo stran in svoboden boš.;Pridobi ljudi na svojo stran, in postal boš svoboden.;2;5;5
-171;Poročena sva za vse življenje.;Združena sva za vse življenje.;2;3;3
-172;Ve, da imaš za sabo predano vojsko.;Ve, da imaš za sabo vdano vojsko.;5;5;2
-173;Umrl bi za spomin na svoje prednike.;Umrl bi zaradi spomina na svoje prednike.;3;3;1
-174;To verjetno ne pomeni nič dobrega.;To verjetno ni dobro.;4;4;4
-175;Takoj mi pokaži svoj prekleti obraz!;Pokaži mi že svoj obraz!;4;5;5
-176;Verjame v delo, ki ga opravljamo tukaj.;Verjame v naše delo.;5;5;5
-177;Podstavimo eksploziv.;Nastavimo eksploziv.;4;5;3
-178;Ker vem, kako močno to potrebuješ.;Ker vem, kako zelo jo potrebuješ.;4;4;2
-179;Želel sem si le, da bi ti dorasel, cesar.;Želel sem si le, da bi ti bil dorasel, cesar.;4;4;2
-180;Občutiš vrtoglavico ali slabost?;Čutiš kakšno odrevenelost ali bolečino?;1;5;4
-181;Ni mogoče, da bi vedeli, da mi bo dodeljen ta primer.;Ni mogoče, da bi vedeli, da me bodo dodelili na ta primer.;5;3;4
-182;Dobro veš, da se bom res.;Veš, da se bom.;5;5;5
-183;Se je včeraj med skupinsko terapijo zgodilo kaj takega, kar je bilo bolj... recimo, bolj spomina vredno kot... -Normalno?;Se je med sinočnjo terapijo zgodilo kaj, kar je bilo bolj omembe vrednega od ... -Normalnega?;4;5;5
-184;On ni na temu oddelku.;Ni ga na tem oddelku.;5;3;4
-185;Izstopi na kakem drugem nadstropju in se ne ustavljaj.;Izstopi na kakšnem drugem nadstropju in se ne ustavljaj.;5;5;1
-186;Si tja dol zahajal na lastno pest?;Si tja dol zahajal na sam?;2;1;3
-187;Potrebovala bova te kartoteke.;Potrebovala bova kartoteke.;3;5;1
-188;-Ja, a se je splačalo poskusiti.;-Ja, ampak izplačalo se je poizkusiti.;5;5;4
-189;Človek hoče pred smrtjo vedeti, da je imelo njegovo življenje smisel.;Na smrtni postelji želi človek vedeti, da je imelo njegovo življenje smisel.;5;5;3
-190;Toda ljudje so ga oboževali.;Ampak ljudje so ga oboževali.;5;5;2
-191;Prave inspiracije ni možno poneveriti.;Pravega navdiha ni možno poneveriti.;5;5;3
-192;Torej je dr. Shehan prišel danes zjutraj s trajektom.;Torej je dr. Sheehan prišel z jutranjim trajektom.;5;5;5
-193;Kdaj bi lahko bili pripravljen na boj?;Kdaj bi lahko bili pripravljeni na boj?;4;5;1
-194;In kateri šoli pripadate vi, doktor?;In katera šola ste vi, doktor?;2;3;3
-195;Mojo glavo?;Z mojo glavo?;2;2;1
-196;Nikoli ne boš član Naroda!;Nikoli ne boš eden od nas!;3;3;3
-197;Dobro, Rachel Solando, mimo koga od vas je še morala iti, da je prišla sem dol?;Mimo koga bi še morala Rachel Solando, da bi prišla sem?;4;5;4
-198;Kar povejo, nihče ne posluša.;Govorijo, a nihče jih ne posluša.;5;5;3
-199;Odvedite ga dol.;Odpeljite ga dol.;5;5;1
+sentence1;sentence2;accuracy;fluency;diversity
+V zgodovini nisem ravno dober, Kasij, toda a ne bi morali barbari izgubiti bitko pri Kartagini?;Zgodovina ni ravno moja močna točka, Kasij, ampak kaj ne bi morali barbari izgubiti bitko pri Kartagini?;5;4;4
+-Da, Jaz sem ga našel.;-Ja, našel sem ga.;5;5;3
+Brez zamere, v redu?;Saj ni zamere, ne?;5;4;4
+Nikakor nočeš umreti.;Preprosto nočeš umreti.;4;5;3
+Jaz mislim, da je.;Jaz mislim, da drži.;3;4;3
+Ničesar, kar bi ga izpostavilo snu.;Ničesar, kar bi ga izpostavilo spancu.;5;5;2
+-Zato mi Arthur stalno tolmači da ni možna.;-Zato mi Arthur vedno tolmači da ni mogoča.;5;5;1
+Nekaj bi vas vprašala.;Naj vas nekaj vprašam.;5;5;3
+Pokrij rano.;Zakrij rano.;3;5;2
+To bo svež začetek na novem svetu.;To bi bil nov začetek na novem svetu.;3;5;2
+Pojdi spančkat, gospod Eames.;Pojdi spat, gospod Eames.;3;5;2
+-Prekleto, zakaj potlej ni?;-Prekleto, zakaj potem ni?;5;5;1
+Ljudje, kaj je tukaj narobe?;Ljudje, kaj tu manjka?;2;3;3
+Nisem tukaj, da bi ubil Leaddisa.;Tu nisem, da bi ubil Leaddisa.;5;5;2
+Ja, poglej moje naprave.;Poglej moje instrumente.;2;4;4
+Marshal, ali imate migreno?;Šerif, imate migreno?;1;5;4
+Ne bom dovolil nove diktature!;Ne bom dopustil novega diktatorstva!;4;2;3
+Otrokoma sem obrnil hrbet in od takrat se stalno trudim pridobiti pot nazaj.;Otrokoma sem obrnil hrbet in od takrat, se vedno trudim pridobiti pot nazaj.;5;2;1
+Drhal to vidi, pa tudi senat.;Drhal vidi to, pa tudi senat.;3;4;2
+Kaj bo torej naš naslednji korak?;Kaj bo najin naslednji korak?;4;4;2
+Moramo premestiti njegovo mržnjo z njegovega očeta na njegovega botra.;Premestiti moramo njegovo sovraštvo z njegovega očeta na njegovega botra.;5;2;3
+Trdila je, da otroci niso mrtvi.;Vztrajala je, da otroci niso mrtvi.;5;5;2
+Tudi to je lahko vrlina, če nas žene k odličnosti.;To je tudi lahko vrlina, če nas žene do odličnosti.;3;5;3
+Najprej jih bom izgnal s plinom.;Najprej jih bom pregnal s plinom.;5;5;2
+Glede tebe pa...;Kar pa se tiče tebe ...;5;5;4
+Pomirite se ljudje, pomirite!;Pomirite se!;2;5;2
+Je bil doktor prisoten?;Je bil dr. Sheehan tistega večera prisoten?;1;5;4
+In še vedno mu.;Še vedno mu.;5;5;1
+Po vseh lažeh, ki si jih izrekel?;Po vseh tvojih lažeh?;5;5;4
+Na'vi pravijo, da se vsak rodi dvakrat.;Na'vi pravijo, da se človek rodi dvakrat.;4;5;2
+To je pa res prekleto smešno.;To je prekleto smešno.;4;4;1
+Kaj pa, če ne bodo hoteli proč?;In če ne bodo hoteli iti?;5;5;5
+Oprostite, veličanstvo.;Oprostite, visočanstvo.;5;5;1
+Ne vem več, kdo sploh sem.;Ne vem več, kdo sem.;5;4;1
+In ko bo kombi trčil v branik na mostu, bo to več kot očitno.;In ko bo kombi trčil v pregrado na mostu, bo to več kot očitno.;5;5;2
+To bi vedel, če bi imel vsaj malo treninga.;Če bi bil na pripravah, bi to vedel.;3;5;4
+Tu je kopija vašega sprejemnega lista.;Tu je kopija vašega sprejemnega obrazca.;5;5;2
+Mi... pojma nimamo, kako je prišla tja.;Ne vemo, kako je prišla ven.;3;4;3
+Prijatelja sem imel.;Imel sem prijatelja.;5;5;3
+Prvič, odkar so zaprli njeno šolo.;Prvič, odkar so njeno šolo zaprli.;5;5;2
+Še pacientov?;Še več pacientov?;5;5;3
+Menila sem, da me morda pogrešaš.;Mislila sem, da me morda pogrešaš.;3;4;2
+Tam spodaj se dogaja nekaj biološko izjemno zanimivega.;Tam se dogaja nekaj biološko zelo zanimivega.;3;5;3
+-Oh... ali res?;-Kaj res?;5;5;2
+Blagoslovljeni oče, bdi nad ženo in sinom s pripravljenim mečem.;Blagoslovljeni oče, bdi nad mojo ženo in sinom s pripravljenim mečem.;4;4;1
+Samo projekcije so.;Samo predstavitve so.;1;4;2
+Bolj kot spreminjaš stvari, hitreje se jim projekcije zbližajo.;Bolj kot spreminjaš stvari, hitreje se jim predstavitve zbližajo.;4;5;1
+Iskreno, če bi sam odločal o tem, bi vklenil tudi vseh 42 pacientov z oddelka A in B. Oprostite mi!;Če bi jaz odločal, bi vklenil tudi vseh 42 pacientov iz oddelkov A in B. Oprostite.;5;5;4
+Nekoč smo to že verjeli.;Nekoč smo že verjeli tako.;5;5;2
+Bogate gospe plačajo precej, da pridejo k največjim borcem.;Bogate gospe precej plačajo, da pridejo k največjim borcem.;5;5;1
+Ja, tukaj smo, sonček.;Smo, sonček.;4;5;2
+Morate oditi, drugače boste vsi umrli.;Oditi morate, drugače boste umrli.;4;5;3
+Potem jih je prinesla nazaj noter in jih posadila za kuhinjsko mizo.;Nato jih je nesla v hišo in jih posadila za mizo.;4;5;5
+Če vaju ne bo nazaj do trzaja, grem z ali brez vaju.;Če vaju ne bo nazaj do trzaja, grem z vama ali brez.;5;2;1
+Pred dvema tednoma ste napadli Georga Noyca.;Pred dvema tednoma ste napadli Noycea.;5;5;1
+Veste s kakšnimi Ijudmi imam opravka vsak dan?;Veste, s kakšnimi ljudmi se vsak dan srečujem?;2;5;3
+Poslušaj mojo teorijo, Andrew.;Moja teorija je taka, Andrew.;5;5;5
+-Čim pridemo v hotel in se približamo Fischerju, nas bo njegovo varovanje obkolilo.;Takoj, ko pridemo v hotel in se približamo Fischerju, nas bodo njegovi varnostniki obkolili.;5;5;3
+V planinah Aleluja?;V gorovju Aleluja?;2;5;2
+Kaj je tam noter?;Kaj je tam?;4;5;1
+Je Senat z vami?;Senat drži z vami?;3;4;3
+Aja, naj izrazimo vašo skrb neposredno Mauricu?;Ali naj izrazimo vašo skrb neposredno Mauricu?;5;5;1
+Gospa je opravila.;Gospa je opravila svoje.;5;5;1
+Veliko se mi mota po glavi.;Veliko se mi moti po glavi.;2;3;1
+Opazoval si me vsak trenutek.;Nadzoroval si me vsako minuto.;4;5;4
+Kako to, da ti ni pomembno, kat te bo vlak odpeljal?;Kako to, da ti ni pomembno, kam te bo vlak odpeljal?;5;5;1
+Vedel sem, da govoriš naš jezik.;Vedel sem, da znaš angleško.;2;4;2
+Kaj bi delala, če bi prišla ven?;In kaj bi storila, če bi prišla ven?;5;3;3
+Samo eno mesto obstaja, kamor bi ga odpeljali.;Samo en kraj je, kamor bi ga odpeljali.;5;4;4
+Torej, greste na trajekt?;Torej, boste odšli s trajektom?;4;5;4
+Tukaj nimaš pravice govoriti!;Tu nimaš pravice govoriti.;5;4;2
+Zarezali bodo v moje možgane.;Rezali mi bodo v možgane.;5;5;2
+"Takega ""frisa"" ne pozabiš.";Takega obraza ne pozabiš.;4;5;2
+Kaj pa zdaj?;Kaj pa to?;2;3;2
+Po skupinski terapiji sem jo pripeljal nazaj sem in jo zaklenil.;Pripeljal sem jo sem po skupinski terapiji in zaklenil.;5;2;4
+Izvajal sem neke eksperimente.;Izvajal sem neke poizkuse.;4;5;2
+Če niste bili v areni, si lahko predstavo ogledate tu.;Če niste bili v areni, lahko vidite predstavo tukaj.;5;4;3
+Znova si dokazal svoje junaštvo, Maksim.;Znova si dokazal svojo hrabrost, Maksim.;5;5;2
+Zelenjavnik, ki podnevi dehti po zeliščih, zvečer pa po jasminu.;Zelenjavnik, ki podnevi dehti po zeliščih, zvečer po jasminu.;5;4;1
+In ... nisem prepričana, da nam bo všeč, kar bomo našli.;Nisem prepričana, da nam bo všeč, kar bomo našli.;4;5;2
+Žaluj z mano, brat.;Žaluj z menoj, brat.;4;5;1
+To je zelo nevarno!;To je nevarno.;3;5;2
+Ne več, če ne zmore, ampak noče.;Ne vem če zmore, ampak vem, da noče.;1;5;4
+Utegnete potonete v globlje stanje sna.;Potonete lahko v globlje stanje sanj.;3;2;4
+Kaj pa zdaj?;Pa zdaj?;5;5;2
+-Zadosti preprosta.;-Dovolj preprosta.;5;5;1
+36 do 48 ur je potrebnih, da nevroleptični narkotiki... dosežejo uporabni nivo v krvnem obtoku.;36 do 48 ur traja, da nevroleptični narkotik v krvi doseže primeren nivo.;5;5;5
+Zato me pustite na miru.;Zato me pustite pri miru.;5;5;1
+Ne pozabi na fazno integracija, srednji gumb.;Ne pozabi fazne integracije.;5;3;3
+Drugič pripelji še kaj prijateljev.;In pripelji še prijatelje.;4;5;4
+Andrew Laeddis je prižgal vžigalico... ki je zanetila požar, ki je ubil mojo ženo.;Andrew Laeddis je prižgal vžigalico, ki je povzročila požar, zaradi katerega je umrla moja žena.;5;4;4
+Zvijače so mi znane, in, lahko vas naučim, da celo v snu vaša obramba ne odpove.;Zvijače so mi znane in lahko vas naučim, da celo v spanju vaša obramba ne odpove.;5;4;2
+Prodal si mi jalove žirafe.;Prodal si mi slabe žirafe.;5;5;2
+Da bi vam pomagali, cesar, je senat pripravil niz protokolov, da bi začeli odpravljati težave mesta, začenši z zdravstvenimi ukrepi v grški četrti, kjer se že pojavlja kuga.;Da bi vam pomagali, cesar, je senat pripravil niz protokolov, da bi začeli odpravljati težave mesta, začenši z osnovnimi zdravstvenimi ukrepi v grški četrti, kjer se že pojavlja kuga.;5;5;3
+In kaj naj bi to pravzaprav bilo?;In kaj naj bi to bilo?;4;5;2
+Se je zgodilo kaj nenavadnega?;Se je zgodilo kaj neobičajnega?;5;5;1
+Prijazen študent.;Prijeten študent.;5;5;1
+Kaj si imel v glavi?;Kaj ti je šlo po glavi?;3;4;3
+Ste uživali v poslednjem božjem daru?;Ste uživali v zadnjem Božjem darilu?;5;4;2
+G. Breen, nekaj vprašanj vam morava postaviti, razumete?;G. Breen, postaviti vam morava nekaj vprašanj, prav?;5;5;5
+Do sedaj še nisva slišala ničesar, kar bi bilo res, Chuck.;Niti enkrat nisva slišala resnice, Chuck.;4;5;5
+Sodo z ledom prosim.;-Mineralno vodo z ledom, prosim.;4;5;3
+Nadeni mu oklep.;Pritrdi mu oklep.;4;5;2
+Kmalu bo star osem let.;Kmalu bo dopolnil osem let.;5;5;3
+Uporabila je praktično iste besede kot Cawley in medicinska sestra.;Uporabila je iste besede kot Cawley in bolničarka.;4;5;4
+Opraviti moramo še nekaj testov premikanja in refleksov.;Še nekaj testov motorike moramo opraviti.;5;5;5
+Fige, jabolka, hruške.;Smokve, jabolka, hruške.;5;5;3
+Boš ostala z mano?;Boš ostala z menoj?;5;5;2
+Mogoče poznate pacienta po imenu Andrew Laeddis?;Ste kdaj spoznali pacienta po imenu Andrew Laeddis?;5;5;5
+Sprehodi se.;Sprehodite se.;5;5;3
+Za vse to si ti kriv, ne bi jim bilo treba umreti.;Ne bi jim bilo treba umreti.;2;5;3
+Ti boš dobil bitko v Kartagini.;Ti dobiš bitko v Kartagini.;2;5;2
+Ne občutiš, da je minilo šest let.;Ne zdi se kot šest let.;4;4;5
+Ampak nekako niste našli časa, da bi ga pogledali.;A nekako še niste našli časa, da bi to pogledali.;5;5;3
+Kje so moji prekleti... cigareti?;Kje so moje presnete cigarete?;5;4;4
+Ali poznate pacienta z imenom Andrew Laeddis?;Ste kdaj spoznali pacienta po imenu Andrew Laeddis?;5;5;5
+Nisem vedel, da bo drgnil svoj frdamani fris obnjo.;Nisem vedel, da bo drgnil svojo prekleto glavo ob njo.;5;4;3
+Jaz sem samo še en bedak, ki gre nekam, kjer bo to obžaloval.;Jaz sem samo pešak, ki gre nekam, kamor si ne želi.;2;4;5
+Umrla bi za kak vzorec.;Vse bi dala za nekaj vzorcev.;5;5;5
+In ne bo ti všeč.;Ne bo ti všeč.;5;4;1
+Hčere nosijo vodo iz reke.;Moje hčere nosijo vodo iz reke.;4;5;1
+Tule ne voham pogodbe.;Tukaj ne voham pogodbe.;5;3;1
+Zgleda, da je imel dolg pogovor s paranoidnim shizofrenikom, Georgom Noycem.;Dolgo se je pogovarjal s paranoidnim shizofrenikom, Georgeom Noycem.;4;5;4
+Brat, prosim, ne napadajte ljudi iz nebes.;Brat, ne napadaj ljudi z neba.;3;4;3
+-Pa še pri pameti te bo ohranilo naslednjih šest let.;Pa še pri pameti te bo ohranilo prihodnjih šest let.;5;5;1
+Tvoja krivda jo definira.;Tvoja krivda jo označuje.;2;4;2
+Dobrodošli v tabor.;Dobrodošli v taboru.;5;5;1
+Njene rane so bile prehude.;Rane so bile prehude.;4;5;1
+Oddelek B, ženski oddelek je na vaši levi strani.;Oddelek B je ženski oddelek, to je stavba na vajini levi.;4;5;3
+To je bistvo težav, kajne?;To je srž težave, mar ne?;5;3;4
+Ej ti,kaj je bil to za en vrag?;Ej ti, kaj je bil to za en vrag?;5;5;1
+Življenje vojaka je preprosteje.;Življenje vojščaka je bolj preprosto.;5;5;4
+Ko sem prišel ven, sem na tleh zagledal trupla.;Ko sem šel ven, sem na tleh videl trupla.;5;4;4
+Je kdo od vas bil v vojski?;Je že kdo bil v vojski?;4;5;3
+Kot da bi bil tam zunaj resničen svet, to tukaj pa samo sanje.;Kot da je tam zunaj resnični svet, to tukaj pa sanje.;5;5;3
+Več kot nagačena plišasta živalca bo treba, da ta otroka prepriča, da še imata očeta.;Več kot nagačena plišasta živalca bo potrebna, da se otroka prepričata, da še imata očeta.;5;4;2
+Glej vse to sveže meso.;Poglej to sveže meso.;4;5;4
+Zato mi najdi korenček, ki jih bo spravil proč.;Najdi korenček, ki jih bo zvabil stran.;5;4;4
+To moti moje naprave.;To moti moje instrumente.;5;4;2
+Vsaka njegova zmaga je kljubovanje.;Vsaka njegova zmaga pomeni kljubovanje.;4;5;2
+Samo Numidijec je vreden 2000.;Že Numidijec je vreden 2000.;5;5;4
+Morda sem imel dovolj zdravnikov, ki so mi govorili, česa vse ne zmorem.;Sit sem bil zdravnikov, ki so mi govorili, česa ne morem.;3;5;4
+Kakšnem partnerju?;Katerem partnerju?;3;4;1
+Mogoče Cawley sedaj sedi v svoji graščini in razmišIja o svojem vedenju.;Mogoče Cawley sedi v svoji graščini in premišljuje o svojem obnašanju.;5;5;3
+KDO JE 67?;KDO JE ŠTEVILKA 67?;5;4;3
+Imenujemo ga veliki leonopteryx.;Naši mu rečejo veliki leonopteriks.;3;5;4
+In jaz tebe.;Tudi jaz tebe.;5;5;4
+"Jaz sem subjekt; moj um ga naseljuje.";Jaz sem predmet, moj um ga naseljuje.;2;4;2
+A si dobro?;Si dobro?;5;5;1
+Zdi se, da tokrat je.;Kot izgleda, tokrat je.;4;3;4
+Nič vam ne pride na misel.;Vam nič ne pride na misel?;1;4;3
+Prosim.. samo pusti da te držim.;Ne, prosim, moram te držati.;5;5;5
+-Prišel si izpridit enega majih najbistrejših in najboljših.;-Prišel si izpridit, enega mojih najbistrejših in najboljših.;4;5;1
+Sprosti se, marinec, delaš me živčno.;Živčno me delaš.;3;4;2
+Veliko ime imaš.;Ugledno ime imaš.;3;3;2
+A prej ali pozneje, na koncu se vedno zbudiš.;Toda prej ali slej se moraš zbuditi.;5;3;5
+Če cel svet misli, da je Chuck mrtev, potem je idealen za njihove poskuse.;Če svet misli, da je Chuck mrtev, je popoln za njihove poskuse.;4;5;3
+Naučena je bila.;Bila je naučena.;5;4;3
+Če bomo ostali skupaj, bomo preživeli.;Če ostanemo skupaj, preživimo.;5;4;4
+In vi pravite, da je morala iti tukaj mimo.;Pravite, da je morala iti tu skozi.;5;5;4
+Kdo pa so, da mi pridigajo?;Kdo so oni, da predavajo meni?;5;5;5
+Kako še ga izvajaš?;Kako ga še izvajaš?;5;2;1
+Kako dolgo sta obtičal tam?;Kako dolgo sta obtičala tam?;5;3;1
+Je legalno priseljevanje zločin, Marshal?;Je imigracija zločin, šerif?;2;4;3
+Ja, je.;Ja, mislim da.;5;5;4
+Boš pobijal otroke?;Boš pobil otroke?;4;5;2
+Tak marinec bi mi lahko priskrbel podatke s terena, ki jih potrebujem.;Tak marinec bi lahko pridobil informacije na terenu.;4;5;5
+Pri takem poslu ni prostora za turiste, gospod Saito.;Pri takšnem poslu ni prostora za turiste, gospod Saito.;5;5;1
+Vse to sta rekonstruirala iz svojih spominov?;Vse to sta ponovno zgradila iz svojih spominov?;3;2;3
+Ampak ta ženska mora tudi izbrati mene.;Ampak tudi ta ženska mora izbrati mene.;4;4;3
+Pridobi jo na svojo stran in svoboden boš.;Pridobi ljudi na svojo stran, in postal boš svoboden.;2;5;5
+Poročena sva za vse življenje.;Združena sva za vse življenje.;2;3;3
+Ve, da imaš za sabo predano vojsko.;Ve, da imaš za sabo vdano vojsko.;5;5;2
+Umrl bi za spomin na svoje prednike.;Umrl bi zaradi spomina na svoje prednike.;3;3;1
+To verjetno ne pomeni nič dobrega.;To verjetno ni dobro.;4;4;4
+Takoj mi pokaži svoj prekleti obraz!;Pokaži mi že svoj obraz!;4;5;5
+Verjame v delo, ki ga opravljamo tukaj.;Verjame v naše delo.;5;5;5
+Podstavimo eksploziv.;Nastavimo eksploziv.;4;5;3
+Ker vem, kako močno to potrebuješ.;Ker vem, kako zelo jo potrebuješ.;4;4;2
+Želel sem si le, da bi ti dorasel, cesar.;Želel sem si le, da bi ti bil dorasel, cesar.;4;4;2
+Občutiš vrtoglavico ali slabost?;Čutiš kakšno odrevenelost ali bolečino?;1;5;4
+Ni mogoče, da bi vedeli, da mi bo dodeljen ta primer.;Ni mogoče, da bi vedeli, da me bodo dodelili na ta primer.;5;3;4
+Dobro veš, da se bom res.;Veš, da se bom.;5;5;5
+Se je včeraj med skupinsko terapijo zgodilo kaj takega, kar je bilo bolj... recimo, bolj spomina vredno kot... -Normalno?;Se je med sinočnjo terapijo zgodilo kaj, kar je bilo bolj omembe vrednega od ... -Normalnega?;4;5;5
+On ni na temu oddelku.;Ni ga na tem oddelku.;5;3;4
+Izstopi na kakem drugem nadstropju in se ne ustavljaj.;Izstopi na kakšnem drugem nadstropju in se ne ustavljaj.;5;5;1
+Si tja dol zahajal na lastno pest?;Si tja dol zahajal na sam?;2;1;3
+Potrebovala bova te kartoteke.;Potrebovala bova kartoteke.;3;5;1
+-Ja, a se je splačalo poskusiti.;-Ja, ampak izplačalo se je poizkusiti.;5;5;4
+Človek hoče pred smrtjo vedeti, da je imelo njegovo življenje smisel.;Na smrtni postelji želi človek vedeti, da je imelo njegovo življenje smisel.;5;5;3
+Toda ljudje so ga oboževali.;Ampak ljudje so ga oboževali.;5;5;2
+Prave inspiracije ni možno poneveriti.;Pravega navdiha ni možno poneveriti.;5;5;3
+Torej je dr. Shehan prišel danes zjutraj s trajektom.;Torej je dr. Sheehan prišel z jutranjim trajektom.;5;5;5
+Kdaj bi lahko bili pripravljen na boj?;Kdaj bi lahko bili pripravljeni na boj?;4;5;1
+In kateri šoli pripadate vi, doktor?;In katera šola ste vi, doktor?;2;3;3
+Mojo glavo?;Z mojo glavo?;2;2;1
+Nikoli ne boš član Naroda!;Nikoli ne boš eden od nas!;3;3;3
+Dobro, Rachel Solando, mimo koga od vas je še morala iti, da je prišla sem dol?;Mimo koga bi še morala Rachel Solando, da bi prišla sem?;4;5;4
+Kar povejo, nihče ne posluša.;Govorijo, a nihče jih ne posluša.;5;5;3
+Odvedite ga dol.;Odpeljite ga dol.;5;5;1
