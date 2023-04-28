@@ -70,13 +70,18 @@ q_test.to_csv("data/quora_test.tsv", sep="\t")
 # q_train = pd.read_csv("data/quora_train.tsv", sep="\t")
 # q_test = pd.read_csv("data/quora_test.tsv", sep="\t")
 
+train_df = pd.concat([train_df, q_train])
+eval_df = pd.concat([eval_df, q_test])
+
 # Slovene data
+sl_train = load_data("data/pairs-train.csv", "sentence1",
+                     "sentence2", "label", lang="sl_SI")
+repeat = max(1, train_df.shape[0] // sl_train.shape[0] // 2)
+
 train_df = pd.concat(
     [
         train_df,
-        load_data("data/pairs-train.csv", "sentence1",
-                  "sentence2", "label", lang="sl_SI"),
-    ]
+    ] + ([sl_train] * repeat)
 )
 eval_df = pd.concat(
     [
@@ -85,9 +90,6 @@ eval_df = pd.concat(
                   "sentence2", "label", lang="sl_SI"),
     ]
 )
-
-train_df = pd.concat([train_df, q_train])
-eval_df = pd.concat([eval_df, q_test])
 
 train_df = train_df[["prefix", "input_text", "target_text", "lang"]]
 eval_df = eval_df[["prefix", "input_text", "target_text", "lang"]]
