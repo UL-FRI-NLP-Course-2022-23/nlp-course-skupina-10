@@ -26,4 +26,4 @@ Evaluated datasets:
 
 ## Analysis
 
-[Dataset Quality Analysis](./analysis.ipynb).
+A simple quality analysis is available in [Dataset Quality Analysis](./analysis.ipynb).
