@@ -243,10 +243,6 @@ ggplot(diamonds,
 %------------------------------------------------
 
 \section*{Results}
-
-
-\textbf{TODO}: Human quality evaluation findings
-
  We evaluated the quality of 200 random paraphrase pairs generated using the paraphrase-mining technique and 100 paraphrase pairs generated using the back-translation technique. We assigned a score from 1 (poor) to 5 (excellent) for each of three metrics to each paraphrase pair.
 
 \begin{enumerate}
@@ -257,6 +253,25 @@ ggplot(diamonds,
     \item Diversity: A measure of how different or unique the paraphrase is from the original text. A paraphrase that is diverse or original should convey the same meaning as the original text, but using different words or structures, and avoiding excessive copying or close similarity to the original text
 \end{enumerate}
 
+\begin{table}[]
+\begin{tabular}{lrr}
+          & \multicolumn{1}{c}{\textbf{Back-translation}} & \multicolumn{1}{c}{\textbf{Paraphrase-mining}} \\
+Accuracy  & $4.29 \pm 0.93$                                       & $4.12 \pm 1.10$                                              \\
+Fluency   & $4.28 \pm 0.85$                                       & $4.17 \pm 1.05$                                              \\
+Diversity & $3.31 \pm 1.22$                                       & $3.03 \pm 1.25$                                             
+\label{Hand evaluated metrics statistics}
+\end{tabular}
+\end{table}
+
+Back-translation technique:
+Accuracy: 
+Fluency: 
+Diversity: 
+
+Paraphrase-mining technique:
+Accuracy: 
+Fluency: 
+Diversity: 
 
 \begin{comment}
 
