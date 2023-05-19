@@ -51,7 +51,7 @@ def review_post(id):
     df.at[id, 'accuracy'] = int(data.get('accuracy'))
     df.at[id, 'fluency'] = int(data.get('fluency'))
     df.at[id, 'diversity'] = int(data.get('diversity'))
-    df.to_csv(file, sep=";")
+    df.to_csv(file, sep=";", index=False)
 
     if 'prev' in data:
         return redirect("/{}".format(id-1), code=302)
