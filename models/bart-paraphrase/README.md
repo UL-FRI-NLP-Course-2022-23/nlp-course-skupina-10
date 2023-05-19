@@ -1,3 +1,5 @@
+# BART-Paraphrase Model
+
 Based on <https://github.com/ThilinaRajapakse/simpletransformers/tree/master/examples/seq2seq/paraphrasing>
 
 Before running, copy the following files to `./data/` folder:
@@ -8,3 +10,7 @@ Before running, copy the following files to `./data/` folder:
 ```sh
 python3 train.py
 ```
+
+## Evaluation
+
+After training, the script will also generate predictions for the sentences from the `dev` / `eval` datasets (see `./eval_predictions.txt`).
