@@ -17,8 +17,10 @@ logger = logging.getLogger(__name__)
 
 
 def load_data(
-    file_path, input_text_column, target_text_column, label_column, keep_label=1, lang='en_XX'
+    file_path, input_text_column, target_text_column, label_column, keep_label=1, src_lang='en_XX', tgt_lang=None
 ):
+    if tgt_lang is None:
+        tgt_lang = src_lang
     df = pd.read_csv(file_path, sep="\t", on_bad_lines='skip')
     df = df.loc[df[label_column] == keep_label]
     df = df.rename(
@@ -27,7 +29,8 @@ def load_data(
     )
     df = df[["input_text", "target_text"]]
     df["prefix"] = "paraphrase"
-    df["lang"] = lang
+    df["src_lang"] = src_lang
+    df["tgt_lang"] = tgt_lang
 
     return df
 
@@ -75,19 +78,20 @@ class CustomSimpleDataset(Dataset):
 
             l = {}
 
-            def get_args(lang):
-                if lang in l:
-                    return l[lang]
+            def get_args(src_lang, tgt_lang):
+                k = '{}_{}'.format(src_lang, tgt_lang)
+                if k in l:
+                    return l[k]
                 d = args.get_args_for_saving()
-                d.update(tgt_lang=lang, src_lang=lang)
+                d.update(tgt_lang=tgt_lang, src_lang=src_lang)
                 d = Seq2SeqArgsFix(**d)
-                l[lang] = d
+                l[k] = d
                 return d
 
             data = [
-                (input_text, target_text, tokenizer, get_args(lang))
-                for input_text, target_text, lang in zip(
-                    data["input_text"], data["target_text"], data["lang"]
+                (input_text, target_text, tokenizer, get_args(src_lang, tgt_lang))
+                for input_text, target_text, src_lang, tgt_lang in zip(
+                    data["input_text"], data["target_text"], data["src_lang"], data["tgt_lang"]
                 )
             ]
 
