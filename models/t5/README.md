@@ -1,11 +1,11 @@
-# T5
+# T5-Model
 
 ## Training 
 
 Base model: [cjvt/t5-sl-large](https://huggingface.co/cjvt/t5-sl-large). You can set the hyper-parameters for training in the `./hyper_params.json` file. 
 
 Before running, please copy the following files to the `./data/` folder.
-+ `pairs-train-aug.csv`, `pairs-dev.csv` from augmentation and backtransaltion
++ `pairs-train-aug.csv`, `pairs-dev.csv` from augmentation and backtranslation
 + `ss-pairs-train.csv` from paraphrase_mining
 
 ```console
