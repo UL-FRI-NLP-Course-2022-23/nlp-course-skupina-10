@@ -1,5 +1,10 @@
 nltk
 transformers
 torch
+torchtext
 srt
 Flask
+pandas
+scipy
+conllu
+parascore==1.0.5

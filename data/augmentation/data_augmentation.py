@@ -26,6 +26,7 @@ def _add_duplicates(data_dir):
         "sentence1 and sentence2 are not equal!"
     return df_dup
 
+
 def _replace_synonyms(org_data_dir, synonym_data_dir):
     """Replace synonyms in the input dataset.
     NOTE that synonyms are replaced by hand, we only read the file here!"""

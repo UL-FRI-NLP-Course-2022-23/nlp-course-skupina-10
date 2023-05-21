@@ -12,7 +12,11 @@ def load_model():
 
 
 def gen_paraphrase(input_text, model, tokenizer):
+    """Generate paraphrases for the input text."""
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model.to(device)
     input_ids = tokenizer.encode(input_text, return_tensors="pt")
+    input_ids = input_ids.to(device)
     outputs = model.generate(input_ids, max_length=512, num_return_sequences=2, num_beams=4)
     return [tokenizer.decode(out, skip_special_tokens=True) for out in outputs]
 
