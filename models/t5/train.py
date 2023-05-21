@@ -70,14 +70,17 @@ if __name__ == "__main__":
     training_args = TrainingArguments(
         output_dir=f"/d/hpc/projects/FRI/DL/mm1706/nlp/{model_name}-para",
         evaluation_strategy="epoch",
+        save_strategy="epoch",
         learning_rate=params["learning_rate"], 
         num_train_epochs=params["n_epochs"],
         per_device_train_batch_size=params["batch_size"],
         per_device_eval_batch_size=params["batch_size"],
         save_total_limit=params["save_limit"],
+        load_best_model_at_end=True,
+        metric_for_best_model="eval_loss"
     )
+    
     data_collator = DataCollatorForSeq2Seq(tokenizer, model=model)
-
     trainer = Trainer(
         model=model,
         args=training_args,

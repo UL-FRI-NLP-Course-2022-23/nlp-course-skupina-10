@@ -102,27 +102,27 @@ def test_model(model, tokenizer, scorer, test_file, save_path="./results"):
     print(f"Mean ref-free score: {mean_ref_free} +/- {std_ref_free}")
 
     # save the results
-    metrics_df = pd.DataFrame(para_s)
-    metrics_df.to_csv(
-        os.path.join(save_path, f"metrics_{datetime.now()}.csv"), index=False, sep="\t"
-    )
+    # metrics_df = pd.DataFrame(para_s)
+    # metrics_df.to_csv(
+    #     os.path.join(save_path, f"metrics_{datetime.now()}.csv"), index=False, sep="\t"
+    # )
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    MODEL_PATH = "/d/hpc/projects/FRI/DL/mm1706/nlp/t5-sl-large-para/checkpoint-10000/"
+    MODEL_PATH = "/d/hpc/projects/FRI/DL/mm1706/nlp/t5-sl-large-para/checkpoint-9330/"
     parser.add_argument("--model_path", type=str, default=MODEL_PATH)
     args = parser.parse_args()
     
     # plot the loss over time
-    # plot_loss(args.model_path)
+    plot_loss(args.model_path)
 
     # make predicitons on the validation set and save them
     tokenizer, model, model_name = load_model()
     model.load_state_dict(torch.load(args.model_path + "/pytorch_model.bin"))
     val_file = os.path.join(os.getcwd(), "data/pairs-dev-t5.csv")
-    # val_predictions(model, tokenizer, val_file)
+    val_predictions(model, tokenizer, val_file)
 
     # init the parascorer and test the model
     scorer = ParaScorer(model_type=MODEL_TYPE)
-    # test_model(model, tokenizer, scorer, val_file)
+    test_model(model, tokenizer, scorer, val_file)
