@@ -1,13 +1,13 @@
 import argparse
 
 import torch
-from transformers import AutoConfig, AutoModelForSeq2SeqLM, AutoTokenizer
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
 
-def load_model():
+def load_model(output_attentions=False):
     """Load the pretrained T5-Model and Tokenizer"""
     tokenizer = AutoTokenizer.from_pretrained("cjvt/t5-sl-large")
-    model = AutoModelForSeq2SeqLM.from_pretrained("cjvt/t5-sl-large")
+    model = AutoModelForSeq2SeqLM.from_pretrained("cjvt/t5-sl-large", output_attentions=output_attentions)
     return tokenizer, model, "t5-sl-large"
 
 
@@ -22,7 +22,7 @@ def gen_paraphrase(input_text, model, tokenizer):
 
 
 if __name__ == "__main__":
-    MODEL_PATH = "/d/hpc/projects/FRI/DL/mm1706/nlp/t5-sl-large-para/checkpoint-10000/"
+    MODEL_PATH = "/d/hpc/projects/FRI/DL/mm1706/nlp/t5-sl-large-para/v1/"
     INPUT_TEXT = "Zanima me, ali moram svetovalki zaposlitve prinesti potrdilo o zdravljenju med njegovim potekom ali pa lahko to opravim po končanem zdravljenju?"
 
     parser = argparse.ArgumentParser()
