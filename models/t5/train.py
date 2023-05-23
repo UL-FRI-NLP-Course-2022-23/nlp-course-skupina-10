@@ -6,6 +6,7 @@ import torch
 from datasets import load_dataset
 from transformers import Trainer, TrainingArguments
 from transformers.data.data_collator import DataCollatorForSeq2Seq
+from sklearn.model_selection import train_test_split
 
 from t5 import load_model
 
@@ -15,7 +16,6 @@ tokenizer, model, model_name = load_model()
 def collect_data(data_dir="./data"):
     """Collect data in ./data directory and put in the T5 format."""
     print(f"Collecting data in {data_dir}...", flush=True)
-
     df_train, df_val = pd.DataFrame(), pd.DataFrame()
     # iterate over all files in the data directory
     for file in os.listdir(data_dir):
@@ -35,13 +35,16 @@ def collect_data(data_dir="./data"):
 
     # save the new dataframes to csv files
     df_train.to_csv(os.path.join(data_dir, "pairs-train-t5.csv"), sep="\t", index=False)
+
+    # split the validation data into two parts
+    df_val, df_test = train_test_split(df_val, test_size=0.5, random_state=42)
+    df_test.to_csv(os.path.join(data_dir, "pairs-test-t5.csv"), sep="\t", index=False)
     df_val.to_csv(os.path.join(data_dir, "pairs-dev-t5.csv"), sep="\t", index=False)
 
 
 def preprocess_function(examples):
     """Preprocess the data for the T5 model."""
-    inputs = examples['sentence1']
-    targets = examples['sentence2']
+    inputs, targets = examples['sentence1'], examples['sentence2']
     inputs_encodings = tokenizer.batch_encode_plus(
         inputs, padding=True, truncation=True, return_tensors="pt", max_length=512)
     targets_encodings = tokenizer.batch_encode_plus(
@@ -55,7 +58,7 @@ def preprocess_function(examples):
 
 if __name__ == "__main__":
     # collect data in the ./data directory and put in the T5 format
-    collect_data()
+    # collect_data()
 
     # read the hyper-parameters
     params = json.load(open(os.path.join(os.getcwd(), "hyper_params.json"), "r"))
@@ -63,11 +66,11 @@ if __name__ == "__main__":
     # read and preprocess the data
     train_file = os.path.join(os.getcwd(), "data/pairs-train-t5.csv")
     val_file = os.path.join(os.getcwd(), "data/pairs-dev-t5.csv")
-    dataset = load_dataset("csv", data_files={'train': train_file,'validation': val_file}, delimiter='\t')
+    dataset = load_dataset("csv", data_files={'train': train_file, 'validation': val_file}, delimiter='\t')
     dataset = dataset.map(preprocess_function, batched=True)
 
     # train the model
-    training_args = TrainingArguments(
+    training_args = TrainingArguments( 
         output_dir=f"/d/hpc/projects/FRI/DL/mm1706/nlp/{model_name}-para",
         evaluation_strategy="epoch",
         save_strategy="epoch",
@@ -80,6 +83,12 @@ if __name__ == "__main__":
         metric_for_best_model="eval_loss"
     )
     
+    # move the model to the GPU
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f"Training on: {device}", flush=True)
+    print(f"Training for {params['n_epochs']} epochs", flush=True)
+    model.to(device)
+
     data_collator = DataCollatorForSeq2Seq(tokenizer, model=model)
     trainer = Trainer(
         model=model,

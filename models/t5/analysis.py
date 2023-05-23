@@ -32,7 +32,7 @@ def plot_loss(model_path, save_path="./results"):
     """Plot the train and validation loss."""
     print("Plotting train and validation loss...", flush=True)
     trainer_state = json.load(open(os.path.join(model_path, "trainer_state.json"), "r"))
-    # print(trainer_state["log_history"])
+    print(trainer_state["log_history"])
 
     def collect_loss(key="loss"):
         loss, steps = [], []
@@ -54,55 +54,27 @@ def plot_loss(model_path, save_path="./results"):
     plt.savefig(os.path.join(save_path, f"loss_{datetime.now()}.pdf"))
 
 
-def val_predictions(model, tokenizer, val_file, save_path="./results"):
-    """Generate paraphrases for the validation set."""
-    print("Making predictions on the validation set...", flush=True)
-    val_df = pd.read_csv(val_file, delimiter="\t")
+def test_model(model, tokenizer, scorer, test_file, save_path="./results"):
+    """Evaluate the model on the test set using the ParaScore metric."""
+    print("Testing the model...", flush=True)
+    test_df = pd.read_csv(test_file, delimiter="\t")
     pairs = []
 
-    # iterate over the validation set and save predictions to save_path
-    for input_text, truth in zip(val_df["sentence1"], val_df["sentence2"]):
-        pairs.append({
-            "input_text": input_text,
-            "truth": truth,
-            "preds": gen_paraphrase(input_text, model, tokenizer)
-        })
-        
-    with open(f"{save_path}/val_predictions_{datetime.now()}.txt", "w") as f:
-        for pair in pairs:
-            f.write(pair["input_text"] + "\n\n")
-            f.write("Truth:\n")
-            f.write(pair["truth"] + "\n\n")
-            f.write("Prediction:\n")
-            for pred in pair["preds"]:
-                f.write(pred + "\n")
-            f.write("________________________________________________________________________________\n")
-
-
-def test_model(model, tokenizer, scorer, test_file, save_path="./results"):
-    """Test the model with the ParaScore metric."""
-    print("Testing the model...", flush=True)
-    para_s = {"ref-free": [], "ref-based": []}
-    test_df = pd.read_csv(test_file, delimiter="\t")
-
-    # iterate over the test set
-    for in_text, truth in zip(test_df["sentence1"], test_df["sentence2"]):
+    for in_text, gt_text in zip(test_df["sentence1"], test_df["sentence2"]):
+        # make predictions
         preds = gen_paraphrase(in_text, model, tokenizer)
 
-        # compute ref-based and ref-free score for each prediction
+        # evaluate predictions
         for pred in preds:
-            score = scorer.base_score([pred], [in_text], [truth])[0]
-            score_free = scorer.free_score([pred], [in_text])[0].item()
-            para_s["ref-based"].append(score)
-            para_s["ref-free"].append(score_free)
+            score = scorer.base_score([pred], [in_text], [gt_text])[0]  # ref-based parascore
+            score_free = scorer.free_score([pred], [in_text])[0].item() # ref-free parascore
+            pairs.append([in_text, gt_text, pred, score, score_free])
 
-    # print the results
-    mean_ref_based = np.mean(para_s["ref-based"])
-    std_ref_based = np.std(para_s["ref-based"])
-    mean_ref_free = np.mean(para_s["ref-free"])
-    std_ref_free = np.std(para_s["ref-free"])
-    print(f"Mean ref-based score: {mean_ref_based} +/- {std_ref_based}")
-    print(f"Mean ref-free score: {mean_ref_free} +/- {std_ref_free}")
+    # save the predictions to a csv file
+    preds_df = pd.DataFrame(
+        pairs, columns=["in_text", "truth", "pred", "parascore-ref-based", "parascore-ref-free"])
+    preds_df.to_csv(
+        os.path.join(save_path, f"predictions_{datetime.now()}.csv"), sep="\t", index=False)
 
 
 @torch.no_grad()
@@ -139,29 +111,27 @@ def viz_attention(model, tokenizer, in_text, gt_text, save_path="./results"):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    MODEL_PATH = "/d/hpc/projects/FRI/DL/mm1706/nlp/t5-sl-large-para/v1/"
+    MODEL_PATH = "/d/hpc/projects/FRI/DL/mm1706/nlp/t5-sl-large-para/final-base/"
     parser.add_argument("--model_path", type=str, default=MODEL_PATH)
     args = parser.parse_args()
     
     # plot the loss over time
-    # plot_loss(args.model_path)
+    print(args.model_path)
+    plot_loss(args.model_path)
 
     # make predicitons on the validation set and save them
-    # tokenizer, model, model_name = load_model()
-    # model.load_state_dict(torch.load(args.model_path + "/pytorch_model.bin"))
-    val_file = os.path.join(os.getcwd(), "data/pairs-dev-t5.csv")
-    # val_predictions(model, tokenizer, val_file)
-
-    # init the parascorer and test the model
+    tokenizer, model, model_name = load_model()
+    model.load_state_dict(torch.load(args.model_path + "/pytorch_model.bin"))
+    test_file = os.path.join(os.getcwd(), "data/pairs-test-t5.csv")
     scorer = ParaScorer(model_type=MODEL_TYPE)
-    # test_model(model, tokenizer, scorer, val_file)
+    test_model(model, tokenizer, scorer, test_file)
 
     # load model with attention
     tokenizer, model, model_name = load_model(output_attentions=True)
     model.load_state_dict(torch.load(args.model_path + "/pytorch_model.bin"))
 
     # visualize attention weights
-    test_df = pd.read_csv(val_file, delimiter="\t")
+    test_df = pd.read_csv(test_file, delimiter="\t")
     in_text, gt_text = test_df["sentence1"][2], test_df["sentence2"][2]
     print(f"in_text: {in_text}")
     print(f"gt_text: {gt_text}")
