@@ -4,7 +4,6 @@ import argparse
 import numpy as np
 
 
-
 def _swap_paraphrases(data_dir):
     """Generate an augmented dataset by swapping sentence1 and sentence2."""
     print("Swapping paraphrases...", flush=True)
@@ -26,6 +25,35 @@ def _add_duplicates(data_dir):
     assert (df_dup["sentence1"] == df_dup["sentence2"]).sum() == df_dup["sentence1"].shape[0], \
         "sentence1 and sentence2 are not equal!"
     return df_dup
+
+
+def _replace_synonyms(org_data_dir, synonym_data_dir):
+    """Replace synonyms in the input dataset.
+    NOTE that synonyms are replaced by hand, we only read the file here!"""
+    df = pd.read_csv(org_data_dir, delimiter="\t")
+    df_s = pd.read_csv(synonym_data_dir, delimiter="\t")
+    return df_s[(df["sentence1"] + " " + df["sentence2"]) != (df_s["sentence1"] + " " + df_s["sentence2"])]
+
+
+def paraphrase_augmentation(root_dir, file, add_duplicates=False):
+    """Paraphrase dataset augmentation."""
+    data_dir = os.path.join(root_dir, file)
+    df_swap = _swap_paraphrases(data_dir)  # original df + swapped df
+    df_syn = _replace_synonyms(data_dir, os.path.join(
+        os.getcwd(), "pairs-train-synonyms-aug.csv"))
+    print(f"added {df_syn.shape[0]} parapharases with replaced synonyms")
+    df_all = [df_swap, df_syn]
+    if add_duplicates:
+        df_dup = _add_duplicates(data_dir)  # duplicates of original df
+        df_all.append(df_dup)
+    df_aug = pd.concat(df_all, ignore_index=True)
+    # word_cnt1 = df_aug.sentence1.apply(lambda x: len(x.split()))
+    # word_cnt2 = df_aug.sentence2.apply(lambda x: len(x.split()))
+    # print(f"longest sentence1 [words] {word_cnt1.max(axis=0)}")
+    # print(f"longest sentence2 [words] {word_cnt2.max(axis=0)}")
+    df_aug.to_csv(os.path.join(os.getcwd(), f"{file.split('.')[0]}-aug.csv"),
+                  index=False, sep="\t")
+
 
 '''
 # NOTE: This introduces a lot of noise, so we don't use it!
@@ -74,28 +102,10 @@ def _sen_synonyms(sen):
         print(word, new_word, sim)
 '''
 
-def _replace_synonyms(org_data_dir, synonym_data_dir):
-    """Replace synonyms in the input dataset.
-    NOTE that synonyms are replaced by hand, we only read the file here!"""
-    df = pd.read_csv(org_data_dir, delimiter="\t")
-    df_s = pd.read_csv(synonym_data_dir, delimiter="\t")
-    return df_s[(df["sentence1"] + " " + df["sentence2"]) != (df_s["sentence1"] + " " + df_s["sentence2"])]
-
-
-def paraphrase_augmentation(root_dir, file):
-    """Paraphrase dataset augmentation."""
-    data_dir = os.path.join(root_dir, file)
-    df_swap = _swap_paraphrases(data_dir)  # original df + swapped df
-    df_dup = _add_duplicates(data_dir)  # duplicates of original df
-    df_syn = _replace_synonyms(data_dir, os.path.join(root_dir, "pairs-train-synonyms-aug.csv"))
-    print(f"added {df_syn.shape[0]} parapharases with replaced synonyms")
-    df_aug = pd.concat([df_swap, df_dup, df_syn], ignore_index=True)
-    df_aug.to_csv(os.path.join(root_dir, f"{file.split('.')[0]}-aug.csv"), index=False, sep="\t")
-
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--root_dir", type=str, default="../backtranslation")
     parser.add_argument("--file", type=str, default="pairs-train.csv")
+    parser.add_argument("--add_duplicates", type=bool, default=False)
     args = parser.parse_args()
     paraphrase_augmentation(args.root_dir, args.file)
