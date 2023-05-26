@@ -16,17 +16,15 @@ transformers_logger.setLevel(logging.ERROR)
 
 train_df = pd.concat(
     [
-        load_data2("data2/pairs-train-t5-aug.csv", "sentence1",
-                   "sentence2", src_lang="sl_SI"),
-        load_data2("data2/pairs-train-t5-base.csv", "sentence1",
-                   "sentence2", src_lang="sl_SI"),
+        load_data2("data2/pairs-train-t5-aug.csv",
+                   "sentence1", "sentence2", src_lang="sl_SI"),
+        load_data2("data2/pairs-train-t5-base.csv",
+                   "sentence1", "sentence2", src_lang="sl_SI"),
     ]
 )
 eval_df = pd.concat(
     [
         load_data2("data2/pairs-dev-t5.csv", "sentence1",
-                   "sentence2", src_lang="sl_SI"),
-        load_data2("data2/pairs-test-t5.csv", "sentence1",
                    "sentence2", src_lang="sl_SI"),
     ]
 )
