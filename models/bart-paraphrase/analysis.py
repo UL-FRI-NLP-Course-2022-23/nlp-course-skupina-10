@@ -1,9 +1,9 @@
 import logging
 import os
-from datetime import datetime
 
 import pandas as pd
 from parascore import ParaScorer
+from parascore.utils import model2layers
 from simpletransformers.seq2seq import Seq2SeqModel
 from utils import load_data2
 
@@ -11,7 +11,21 @@ logging.basicConfig(level=logging.INFO)
 transformers_logger = logging.getLogger("transformers")
 transformers_logger.setLevel(logging.ERROR)
 
-MODEL_TYPE = "facebook/mbart-large-50"
+#######################################################
+# NOTE: Since the parascore library doesn't support the `crosloengual-bert`
+# (https://arxiv.org/pdf/2006.07890.pdf) we have to add it manually.
+
+
+def add_contextual_emb_model(model_type, n_layers):
+    """Add a custom contextual embedding model to the parascore library."""
+    global model2layers
+    model2layers[model_type] = n_layers
+
+
+MODEL_TYPE = "EMBEDDIA/crosloengual-bert"
+MODEL_LAYERS = 12
+add_contextual_emb_model(MODEL_TYPE, MODEL_LAYERS)
+#######################################################
 
 model = Seq2SeqModel(
     encoder_decoder_type="mbart50",

@@ -5,7 +5,7 @@ from datetime import datetime
 import pandas as pd
 from simpletransformers.seq2seq import Seq2SeqModel
 from utils import (CustomSimpleDataset, Seq2SeqArgsFix,
-                   clean_unnecessary_spaces, load_data)
+                   clean_unnecessary_spaces, load_data2)
 
 # torch.multiprocessing.set_sharing_strategy('file_system')
 
@@ -14,27 +14,21 @@ logging.basicConfig(level=logging.INFO)
 transformers_logger = logging.getLogger("transformers")
 transformers_logger.setLevel(logging.ERROR)
 
-train_df = pd.read_csv("data/ml_combined.csv", sep="\t").astype(str)
-eval_df = pd.read_csv("data/ml_combined_eval.csv", sep="\t").astype(str)
-
-# Slovene data
 train_df = pd.concat(
     [
-        train_df,
-        load_data("data/pairs-train.csv", "sentence1",
-                  "sentence2", "label", src_lang="sl_SI"),
+        # Pick one
+        # load_data2("data/pairs-train-t5-base.csv",
+        #           "sentence1", "sentence2", src_lang="sl_SI"),
+        load_data2("data/pairs-train-t5-aug.csv",
+                   "sentence1", "sentence2", src_lang="sl_SI"),
     ]
 )
 eval_df = pd.concat(
     [
-        eval_df,
-        load_data("data/pairs-dev.csv", "sentence1",
-                  "sentence2", "label", src_lang="sl_SI"),
+        load_data2("data/pairs-dev-t5.csv", "sentence1",
+                   "sentence2", src_lang="sl_SI"),
     ]
 )
-
-eval_df = load_data("data/pairs-dev.csv", "sentence1",
-                    "sentence2", "label", src_lang="sl_SI")
 
 train_df = train_df[["prefix", "input_text",
                      "target_text", "src_lang", "tgt_lang"]]
@@ -92,6 +86,9 @@ model = Seq2SeqModel(
 )
 
 model.train_model(train_df, eval_data=eval_df)
+
+eval_df = load_data2("data/pairs-test-t5.csv", "sentence1",
+                     "sentence2", src_lang="sl_SI")
 
 to_predict = eval_df["input_text"].tolist()
 truth = eval_df["target_text"].tolist()
