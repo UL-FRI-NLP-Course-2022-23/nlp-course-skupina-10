@@ -77,17 +77,37 @@ def test_model(model, tokenizer, scorer, test_file, save_path="./results"):
         os.path.join(save_path, f"predictions_{datetime.now()}.csv"), sep="\t", index=False)
 
 
+def test_predictions(scorer, test_file, save_path="./results"):
+    """Evaluate the predictions using the ParaScore metric."""
+    print("Computing parascore...", flush=True)
+    df = pd.read_csv(test_file, delimiter="\t")
+    pairs = []
+
+    for in_text, gt_text, pred in zip(df["sentence1"], df["sentence2"], df["pred"]):
+        score = scorer.base_score([pred], [in_text], [gt_text])[0]  # ref-based parascore
+        score_free = scorer.free_score([pred], [in_text])[0].item() # ref-free parascore
+        pairs.append([in_text, gt_text, pred, score, score_free])
+
+        break
+
+    # save the predictions to a csv file
+    preds_df = pd.DataFrame(
+        pairs, columns=["in_text", "truth", "pred", "parascore-ref-based", "parascore-ref-free"])
+    preds_df.to_csv(
+        os.path.join(save_path, f"predictions_{datetime.now()}.csv"), sep="\t", index=False)
+
+
 @torch.no_grad()
 def viz_attention(model, tokenizer, in_text, gt_text, save_path="./results"):
     """Visualize the attention between words in the source sentence and in the target sentence."""
     print("Visualizing attention weights...", flush=True)
 
     # get encoded input vectors
-    encoder_input_ids = tokenizer(in_text, return_tensors="pt", add_special_tokens=True).input_ids
+    encoder_input_ids = tokenizer(in_text, return_tensors="pt", add_special_tokens=False).input_ids
     
     # create ids of encoded input vectors
     with tokenizer.as_target_tokenizer():
-        decoder_input_ids = tokenizer(gt_text, return_tensors="pt", add_special_tokens=True).input_ids
+        decoder_input_ids = tokenizer(gt_text, return_tensors="pt", add_special_tokens=False).input_ids
 
     outputs = model(input_ids=encoder_input_ids, decoder_input_ids=decoder_input_ids)
     encoder_text = tokenizer.convert_ids_to_tokens(encoder_input_ids[0])
@@ -110,29 +130,42 @@ def viz_attention(model, tokenizer, in_text, gt_text, save_path="./results"):
 
 
 if __name__ == "__main__":
+    """
     parser = argparse.ArgumentParser()
-    MODEL_PATH = "/d/hpc/projects/FRI/DL/mm1706/nlp/t5-sl-large-para/final-base/"
+    MODEL_PATH = "/d/hpc/projects/FRI/DL/mm1706/nlp/t5-sl-large-para/final-aug/"
+    print(f"Using model from {MODEL_PATH}")
     parser.add_argument("--model_path", type=str, default=MODEL_PATH)
     args = parser.parse_args()
     
     # plot the loss over time
     print(args.model_path)
-    plot_loss(args.model_path)
+    # plot_loss(args.model_path)
 
     # make predicitons on the validation set and save them
     tokenizer, model, model_name = load_model()
     model.load_state_dict(torch.load(args.model_path + "/pytorch_model.bin"))
     test_file = os.path.join(os.getcwd(), "data/pairs-test-t5.csv")
     scorer = ParaScorer(model_type=MODEL_TYPE)
-    test_model(model, tokenizer, scorer, test_file)
+    # test_model(model, tokenizer, scorer, test_file)
 
     # load model with attention
     tokenizer, model, model_name = load_model(output_attentions=True)
     model.load_state_dict(torch.load(args.model_path + "/pytorch_model.bin"))
 
     # visualize attention weights
-    test_df = pd.read_csv(test_file, delimiter="\t")
-    in_text, gt_text = test_df["sentence1"][2], test_df["sentence2"][2]
+    in_text = "Cilj te študije je bil identificirati korelacije med prehrano in duševnim zdravjem mladostnikov."
+    gt_text = "Glavni namen te raziskave je bil ugotoviti povezave med prehrano in psihičnim blagostanjem pri mladostnikih."
+
+    in_text = "Vlada je sprejela ukrepe za spodbujanje trajnostnega razvoja in zmanjšanje ogljičnega odtisa."
+    gt_text = "Vodstvo je implementiralo strategije s ciljem spodbujanja trajnostnega napredka ter zmanjšanja negativnega vpliva na okolje v obliki ogljičnega odtisa."
+
     print(f"in_text: {in_text}")
     print(f"gt_text: {gt_text}")
     viz_attention(model, tokenizer, in_text, gt_text)
+    """
+
+    # evaluate the predictions
+    PRED_PATH = "./results/predictions_base.csv"
+    test_file = os.path.join(os.getcwd(), PRED_PATH)
+    scorer = ParaScorer(model_type=MODEL_TYPE)
+    test_predictions(scorer, test_file, save_path="./extra-results")
