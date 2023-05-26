@@ -38,8 +38,9 @@ def _replace_synonyms(org_data_dir, synonym_data_dir):
 def paraphrase_augmentation(root_dir, file, add_duplicates=False):
     """Paraphrase dataset augmentation."""
     data_dir = os.path.join(root_dir, file)
-    df_swap = _swap_paraphrases(data_dir)  # original df + swapped df    
-    df_syn = _replace_synonyms(data_dir, os.path.join(os.getcwd(), "pairs-train-synonyms-aug.csv"))
+    df_swap = _swap_paraphrases(data_dir)  # original df + swapped df
+    df_syn = _replace_synonyms(data_dir, os.path.join(
+        os.getcwd(), "pairs-train-synonyms-aug.csv"))
     print(f"added {df_syn.shape[0]} parapharases with replaced synonyms")
     df_all = [df_swap, df_syn]
     if add_duplicates:
@@ -50,8 +51,9 @@ def paraphrase_augmentation(root_dir, file, add_duplicates=False):
     # word_cnt2 = df_aug.sentence2.apply(lambda x: len(x.split()))
     # print(f"longest sentence1 [words] {word_cnt1.max(axis=0)}")
     # print(f"longest sentence2 [words] {word_cnt2.max(axis=0)}")
-    df_aug.to_csv(os.path.join(os.getcwd(), f"{file.split('.')[0]}-aug.csv"), 
+    df_aug.to_csv(os.path.join(os.getcwd(), f"{file.split('.')[0]}-aug.csv"),
                   index=False, sep="\t")
+
 
 '''
 # NOTE: This introduces a lot of noise, so we don't use it!
