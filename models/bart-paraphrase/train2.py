@@ -4,9 +4,8 @@ from datetime import datetime
 
 import pandas as pd
 from simpletransformers.seq2seq import Seq2SeqModel
-from sklearn.model_selection import train_test_split
 from utils import (CustomSimpleDataset, Seq2SeqArgsFix,
-                   clean_unnecessary_spaces, load_data)
+                   clean_unnecessary_spaces, load_data2)
 
 # torch.multiprocessing.set_sharing_strategy('file_system')
 
@@ -17,14 +16,20 @@ transformers_logger.setLevel(logging.ERROR)
 
 train_df = pd.concat(
     [
-        load_data("data/pairs-train-t5-aug.csv", "sentence1",
-                  "sentence2", src_lang="sl_SI"),
-        load_data("data/pairs-train-t5-base.csv", "sentence1",
-                  "sentence2", src_lang="sl_SI"),
+        load_data2("data2/pairs-train-t5-aug.csv", "sentence1",
+                   "sentence2", src_lang="sl_SI"),
+        load_data2("data2/pairs-train-t5-base.csv", "sentence1",
+                   "sentence2", src_lang="sl_SI"),
     ]
 )
-eval_df = load_data("data/pairs-dev-t5.csv", "sentence1",
-                    "sentence2", src_lang="sl_SI"),
+eval_df = pd.concat(
+    [
+        load_data2("data2/pairs-dev-t5.csv", "sentence1",
+                   "sentence2", src_lang="sl_SI"),
+        load_data2("data2/pairs-test-t5.csv", "sentence1",
+                   "sentence2", src_lang="sl_SI"),
+    ]
+)
 
 train_df = train_df[["prefix", "input_text",
                      "target_text", "src_lang", "tgt_lang"]]
@@ -84,6 +89,9 @@ model = Seq2SeqModel(
 
 model.train_model(train_df, eval_data=eval_df)
 
+eval_df = load_data2("data/pairs-test-t5.csv", "sentence1",
+                     "sentence2", src_lang="sl_SI")
+
 to_predict = eval_df["input_text"].tolist()
 truth = eval_df["target_text"].tolist()
 
@@ -91,8 +99,6 @@ preds = model.predict(to_predict)
 
 # Saving the predictions if needed
 os.makedirs("predictions", exist_ok=True)
-eval_df = load_data("data/pairs-test-t5.csv", "sentence1",
-                    "sentence2", src_lang="sl_SI"),
 
 with open(f"predictions/predictions_{datetime.now()}.txt", "w", encoding='utf-8') as f:
     for i, text in enumerate(eval_df["input_text"].tolist()):

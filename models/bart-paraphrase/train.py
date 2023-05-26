@@ -4,7 +4,6 @@ from datetime import datetime
 
 import pandas as pd
 from simpletransformers.seq2seq import Seq2SeqModel
-from sklearn.model_selection import train_test_split
 from utils import (CustomSimpleDataset, Seq2SeqArgsFix,
                    clean_unnecessary_spaces, load_data)
 
@@ -22,23 +21,20 @@ eval_df = pd.read_csv("data/ml_combined_eval.csv", sep="\t").astype(str)
 train_df = pd.concat(
     [
         train_df,
-        load_data(
-            "data/pairs-train.csv", "sentence1", "sentence2", "label", src_lang="sl_SI"
-        ),
+        load_data("data/pairs-train.csv", "sentence1",
+                  "sentence2", "label", src_lang="sl_SI"),
     ]
 )
 eval_df = pd.concat(
     [
         eval_df,
-        load_data(
-            "data/pairs-dev.csv", "sentence1", "sentence2", "label", src_lang="sl_SI"
-        ),
+        load_data("data/pairs-dev.csv", "sentence1",
+                  "sentence2", "label", src_lang="sl_SI"),
     ]
 )
 
-eval_df = load_data(
-    "data/pairs-dev.csv", "sentence1", "sentence2", "label", src_lang="sl_SI"
-)
+eval_df = load_data("data/pairs-dev.csv", "sentence1",
+                    "sentence2", "label", src_lang="sl_SI")
 
 train_df = train_df[["prefix", "input_text",
                      "target_text", "src_lang", "tgt_lang"]]
@@ -63,9 +59,9 @@ model_args.evaluate_during_training = False
 model_args.evaluate_during_training_steps = 2500
 model_args.evaluate_during_training_verbose = True
 model_args.fp16 = False
-model_args.learning_rate = 5e-5
+model_args.learning_rate = 1e-4
 model_args.max_seq_length = 128
-model_args.num_train_epochs = 2
+model_args.num_train_epochs = 5
 model_args.overwrite_output_dir = True
 model_args.reprocess_input_data = False
 model_args.use_cached_eval_features = True
@@ -82,8 +78,8 @@ model_args.max_length = 128
 model_args.top_k = 50
 model_args.top_p = 0.95
 model_args.dataset_class = CustomSimpleDataset
-model_args.tgt_lang = "sl_SI"
-model_args.src_lang = "sl_SI"
+model_args.tgt_lang = 'sl_SI'
+model_args.src_lang = 'sl_SI'
 
 # model_args.wandb_project = "Paraphrasing with BART"
 
@@ -105,7 +101,7 @@ preds = model.predict(to_predict)
 # Saving the predictions if needed
 os.makedirs("predictions", exist_ok=True)
 
-with open(f"predictions/predictions_{datetime.now()}.txt", "w", encoding="utf-8") as f:
+with open(f"predictions/predictions_{datetime.now()}.txt", "w", encoding='utf-8') as f:
     for i, text in enumerate(eval_df["input_text"].tolist()):
         f.write(str(text) + "\n\n")
 
