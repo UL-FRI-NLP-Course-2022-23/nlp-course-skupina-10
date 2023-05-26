@@ -190,7 +190,7 @@ T5 (Text-To-Text Transfer Transformer) is a transformer-based model typically us
 
 % The model was trained with the following hyper-parameters: batch size $B=8$, learning rate $\alpha = 1e-4$ and weight decay $\gamma = 1.5e-4$, we trained the model with the AdamW optimiser, optimising the Cross Entropy (CE) Loss for $5$ epochs. Figure ~\ref{fig:t5_loss_aug_data} shows the CE loss on the train and validation set. 
 %\begin{figure}[ht]\centering
-%	\includegraphics[width=\linewidth]{report/fig/t5_loss_aug_data.pdf}
+%	\includegraphics[width=\linewidth]{t5_loss_aug_data.pdf}
 %	\caption{}
 %	\label{fig:t5_loss_aug_data}
 %\end{figure}
@@ -383,14 +383,14 @@ We trained the model on the original dataset (consisting of around $8000$ senten
     \centering
     \begin{subfigure}{0.45\linewidth} % Adjust the width as desired
         \centering
-        \includegraphics[width=\textwidth]{report/fig/t5-base-parascore-ref-based-hist.pdf}
+        \includegraphics[width=\textwidth]{t5-base-parascore-ref-based-hist.pdf}
         \caption{\textbf{Ref-based parascore}.}
         \label{fig:t5-base-parascore-ref-based-hist}
     \end{subfigure}
     \hfill % Add horizontal spacing between subfigures
     \begin{subfigure}{0.45\linewidth} % Adjust the width as desired
         \centering
-        \includegraphics[width=\textwidth]{report/fig/t5-base-parascore-ref-free-hist.pdf}
+        \includegraphics[width=\textwidth]{t5-base-parascore-ref-free-hist.pdf}
         \caption{\textbf{Ref-free parascore}}
         \label{fig:t5-base-parascore-ref-free-hist}
     \end{subfigure}
@@ -405,14 +405,14 @@ After further investigation we found that most of the sentences with ref-based a
     \centering
     \begin{subfigure}{0.45\linewidth} % Adjust the width as desired
         \centering
-        \includegraphics[width=\textwidth]{report/fig/t5-base-copy-preds-parascore-ref-based-hist.pdf}
+        \includegraphics[width=\textwidth]{t5-base-copy-preds-parascore-ref-based-hist.pdf}
         \caption{\textbf{Ref-based parascore}.}
         \label{fig:t5-aug-parascore-ref-based-hist}
     \end{subfigure}
     \hfill % Add horizontal spacing between subfigures
     \begin{subfigure}{0.45\linewidth} % Adjust the width as desired
         \centering
-        \includegraphics[width=\textwidth]{report/fig/t5-base-copy-preds-parascore-ref-free-hist.pdf}
+        \includegraphics[width=\textwidth]{t5-base-copy-preds-parascore-ref-free-hist.pdf}
         \caption{\textbf{Ref-free parascore}}
         \label{fig:t5-aug-parascore-ref-free-hist}
     \end{subfigure}
@@ -429,14 +429,14 @@ Keeping all hyper-parameters constant, we train the model again this time on the
     \centering
     \begin{subfigure}{0.45\linewidth} % Adjust the width as desired
         \centering
-        \includegraphics[width=\textwidth]{report/fig/t5-aug-parascore-ref-based-hist.pdf}
+        \includegraphics[width=\textwidth]{t5-aug-parascore-ref-based-hist.pdf}
         \caption{\textbf{Ref-based parascore}.}
         \label{fig:t5-aug-parascore-ref-based-hist}
     \end{subfigure}
     \hfill % Add horizontal spacing between subfigures
     \begin{subfigure}{0.45\linewidth} % Adjust the width as desired
         \centering
-        \includegraphics[width=\textwidth]{report/fig/t5-aug-parascore-ref-free-hist.pdf}
+        \includegraphics[width=\textwidth]{t5-aug-parascore-ref-free-hist.pdf}
         \caption{\textbf{Ref-free parascore}}
         \label{fig:t5-aug-parascore-ref-free-hist}
     \end{subfigure}
@@ -561,13 +561,13 @@ In this section, our aim is to explain the extent to which we can comprehend the
     \centering
     \begin{subfigure}{0.45\linewidth} % Adjust the width as desired
         \centering
-        \includegraphics[width=\textwidth]{report/fig/t5-sen1-conn1.pdf}
+        \includegraphics[width=\textwidth]{t5-sen1-conn1.pdf}
         \label{fig:t5-sen1-conn1}
     \end{subfigure}
     \hfill % Add horizontal spacing between subfigures
     \begin{subfigure}{0.45\linewidth} % Adjust the width as desired
         \centering
-        \includegraphics[width=\textwidth]{report/fig/t5-sen1-conn2.pdf}
+        \includegraphics[width=\textwidth]{t5-sen1-conn2.pdf}
         \label{fig:t5-sen1-conn2}
     \end{subfigure}
     \caption{\textbf{Encoder-Decoder Attention} paraphrased sentence (left column), original sentence (right column)}
@@ -582,7 +582,7 @@ Given completed evaluation using automated computation model Parascore, we've al
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.45\textwidth]{report/fig/corr_heatmap.pdf}
+    \includegraphics[width=0.45\textwidth]{corr_heatmap.pdf}
     \caption{\textbf{Correlation heat map} among human evaluation using three metrics (accuracy, fluency and diversity) and both parascores - reference and non reference based}
     \label{fig:corr-heatmap}
 \end{figure}
@@ -625,11 +625,11 @@ Use the Discussion section to objectively evaluate your work, do not just put pr
 
 %------------------------------------------------
 
-\section*{Acknowledgments}
+%\section*{Acknowledgments}
 
-\begin{comment}
-Here you can thank other persons (advisors, colleagues ...) that contributed to the successful completion of your project.
-\end{comment}
+%\begin{comment}
+%Here you can thank other persons (advisors, colleagues ...) that contributed to the successful completion of your project.
+%\end{comment}
 
 %----------------------------------------------------------------------------------------
 %	REFERENCE LIST
