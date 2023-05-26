@@ -35,6 +35,24 @@ def load_data(
     return df
 
 
+def load_data2(
+    file_path, input_text_column, target_text_column,  src_lang='en_XX', tgt_lang=None
+):
+    if tgt_lang is None:
+        tgt_lang = src_lang
+    df = pd.read_csv(file_path, sep="\t", on_bad_lines='skip')
+    df = df.rename(
+        columns={input_text_column: "input_text",
+                 target_text_column: "target_text"}
+    )
+    df = df[["input_text", "target_text"]]
+    df["prefix"] = "paraphrase"
+    df["src_lang"] = src_lang
+    df["tgt_lang"] = tgt_lang
+
+    return df
+
+
 def clean_unnecessary_spaces(out_string):
     if not isinstance(out_string, str):
         warnings.warn(f">>> {out_string} <<< is not a string.")
