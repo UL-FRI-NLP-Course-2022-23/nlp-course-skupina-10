@@ -88,8 +88,6 @@ def test_predictions(scorer, test_file, save_path="./results"):
         score_free = scorer.free_score([pred], [in_text])[0].item() # ref-free parascore
         pairs.append([in_text, gt_text, pred, score, score_free])
 
-        break
-
     # save the predictions to a csv file
     preds_df = pd.DataFrame(
         pairs, columns=["in_text", "truth", "pred", "parascore-ref-based", "parascore-ref-free"])
