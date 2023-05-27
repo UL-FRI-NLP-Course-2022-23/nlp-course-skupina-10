@@ -9,3 +9,23 @@ Team members:
 Group public acronym/name: `hkh_10_3`
 
 > This value will be used for publishing marks/scores. It will be known only to you and not you colleagues.
+
+
+## Environment Setup
+
+### 1. Create and activate environment
+
+```
+conda create --name paragen python=3.8
+conda activate paragen
+```
+
+### 2. Install packages
+
+```
+pip install -r requirements.txt
+```
+
+### 3. Running the code
+
+Instructions on how to run the code are provided in the individual README files in `./data` and `./models`
