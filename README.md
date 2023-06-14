@@ -29,3 +29,8 @@ pip install -r requirements.txt
 ### 3. Running the code
 
 Instructions on how to run the code are provided in the individual README files in `./data` and `./models`
+
+
+## Models and data
+
+### [Bart](https://hitko.files.htk.io/outputs.zip)
