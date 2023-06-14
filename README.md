@@ -33,4 +33,6 @@ Instructions on how to run the code are provided in the individual README files 
 
 ## Models and data
 
-### [Bart](https://hitko.files.htk.io/outputs.zip)
+1. [Download Bart](https://hitko.files.htk.io/outputs.zip)
+2. [Download T5](https://drive.google.com/file/d/1PcD_KSpU3XwaEdwmWopYe5-yGIx7gy-C/view?usp=sharing)
+3. [Download Final Dataset](https://drive.google.com/file/d/1MztJjHVOY5PtUPZZ7naS4MhmVBJwNK05/view?usp=sharing)
